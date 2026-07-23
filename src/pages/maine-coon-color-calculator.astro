@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CatColorCalculator from '../components/CatColorCalculator.astro';
+
+const title = "Maine Coon Color Calculator - Predict Kitten Colors";
+const description = "Maine Coon color calculator. Predict Maine Coon kitten coat colors from parent genetics. Brown tabby, silver, tortie, and more. Free, no signup.";
+---
+<Layout title={title} description={description}>
+  <Header active="breeds" />
+  <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
+<!-- Layer 1: H1 & Breed Calculator -->
+<section class="space-y-lg">
+<div class="text-center md:text-left max-w-2xl">
+<h1 class="text-display-lg font-display-lg text-on-surface mb-md">Maine Coon Color Calculator</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Advanced genetic prediction specifically tuned for the majestic Maine Coon's diverse coat patterns and unique modifiers.</p>
+</div>
+<CatColorCalculator
+  variant="breed"
+  breed="maine-coon"
+  defaultResults={[
+    { label: "Silver Tabby (Male)", pct: 45 },
+    { label: "Brown Tabby (Female)", pct: 30 },
+    { label: "Black Smoke (M/F)", pct: 25 },
+  ]}
+  note="Note: These percentages are based on standard Mendelian genetics for the Maine Coon breed."
+/>
+</section>
+
+<!-- Layer 2: Patterns & Genetics -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="bg-white rounded-xl p-xl border border-outline-variant/50 card-shadow">
+<h2 class="text-headline-lg font-headline-lg mb-lg text-primary">Common Maine Coon Colors</h2>
+<div class="space-y-lg">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary text-4xl">cloud</span>
+<div>
+<h4 class="text-label-md font-label-md font-bold mb-1">Smoke &amp; Silver</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">The Inhibitor gene (I) creates the stunning silver and smoke variants. Silver cats have a white undercoat with tabby markings, while Smokes appear solid until they move, revealing their white roots.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary text-4xl">texture</span>
+<div>
+<h4 class="text-label-md font-label-md font-bold mb-1">Solid Patterns</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">While Maine Coons are famous for their brown classic tabbies, solids like Black, Blue, and White are equally recognized. The Non-Agouti gene (a) masks the underlying tabby pattern to create these deep, uniform colors.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-fixed rounded-xl p-xl border border-outline-variant/50 flex flex-col justify-center">
+<h2 class="text-headline-lg font-headline-lg mb-md text-on-tertiary-fixed">Maine Coon Genetics Notes</h2>
+<p class="text-body-lg font-body-lg text-on-tertiary-fixed-variant mb-lg">
+                    The Maine Coon possesses one of the most diverse gene pools among pedigreed cats. Due to their "working cat" origins in the American Northeast, their genetics are robust and allow for a massive variety of coat lengths, densities, and colors. 
+                </p>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-white/50 p-md rounded-lg">
+<span class="text-display-lg font-display-lg text-primary leading-none">75+</span>
+<p class="text-label-sm font-label-sm uppercase tracking-tighter font-bold">Recognized Colors</p>
+</div>
+<div class="bg-white/50 p-md rounded-lg">
+<span class="text-display-lg font-display-lg text-primary leading-none">3</span>
+<p class="text-label-sm font-label-sm uppercase tracking-tighter font-bold">Tabby Variants</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Layer 3: Example Outcomes (Asymmetric Grid) -->
+<section class="space-y-lg">
+<h2 class="text-headline-lg font-headline-lg text-center">Maine Coon Example Outcomes</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md">
+<!-- Case 1 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<img src="/images/cats/brown-tabby/0.jpg" alt="A side-by-side comparison illustration showing a Brown Tabby Maine Coon and a Silver Tabby Maine Coon under soft studio lighting, highlighting their thick fur and majestic lynx-tips." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Brown x Silver</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Produces Silver Tabbies, Brown Tabbies, and potential Smokes.</p>
+</div>
+<!-- Case 2 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/black/0.jpg" alt="A portrait of a solid black Maine Coon with vibrant copper eyes sitting in a sun-drenched window, the fur showing a warm minimalist glow." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Solid Black x White</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">High chance of Odd-eyed Whites and Solid Blacks with white lockets.</p>
+</div>
+<!-- Case 3 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/red-tabby/0.jpg" alt="A beautiful red tabby Maine Coon kitten with high-contrast stripes playing with a feather toy in a modern, brightly lit interior." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Red x Tortie</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">The "Sunset Cross": Produces Reds, Creams, and colorful Tortoiseshells.</p>
+</div>
+<!-- Case 4 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/blue/0.jpg" alt="A smoky grey blue-cream Maine Coon cat lying on a soft cream rug, showing the diffused and soft coloration of the dilute gene." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Blue x Cream</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">The Dilute path: Results in Blue-Creams, Blue Solids, and Creams.</p>
+</div>
+<!-- Case 5 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/maine-coon/0.jpg" alt="Macro shot of a Maine Coon's silver smoke fur showing the pure white base transitioning to a deep charcoal tip." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Silver x Smoke</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Max inhibitor expression: Produces high-contrast Smoke patterns.</p>
+</div>
+<!-- Case 6 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/brown-tabby/0.jpg" alt="A group of four diverse Maine Coon kittens in a basket, showing a mix of tabby, solid, and bi-color coats in a warm light setting." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Calico x Classic Tabby</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Complex outcome: A wide range of patched and striped kittens.</p>
+</div>
+<!-- Case 7 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/blue/0.jpg" alt="A pure white Maine Coon with blue eyes standing majestically in a minimalist white room with soft shadows." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">White x Silver</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Epistatic dominant white may mask the underlying silver genes.</p>
+</div>
+<!-- Case 8 -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 card-shadow hover:-translate-y-1 transition-transform">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img src="/images/cats/brown-tabby/0.jpg" alt="A Maine Coon with mackerel tabby patterns showing the distinctive fish-bone stripes along its flank in high detail." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<h4 class="text-label-md font-label-md mb-1">Classic x Mackerel</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Predicting the dominant Mackerel or recessive Classic pattern.</p>
+</div>
+</div>
+</section>
+<!-- Other Breeds Section -->
+<section class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Other Breeds</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Explore specialized calculators for other popular pedigree breeds.</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 hover:underline">
+                    View All Breeds <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<a class="group bg-white p-lg rounded-xl border border-outline-variant/30 interactive-shadow transition-all flex items-center gap-md"  href="/persian-cat-color-calculator/">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="font-bold">Persian</span>
+</a>
+<a class="group bg-white p-lg rounded-xl border border-outline-variant/30 interactive-shadow transition-all flex items-center gap-md"  href="/">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="font-bold">Ragdoll</span>
+</a>
+<a class="group bg-white p-lg rounded-xl border border-outline-variant/30 interactive-shadow transition-all flex items-center gap-md"  href="/">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="font-bold">Siamese</span>
+</a>
+<a class="group bg-white p-lg rounded-xl border border-outline-variant/30 interactive-shadow transition-all flex items-center gap-md"  href="/bengal-cat-color-calculator/">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="font-bold">Bengal</span>
+</a>
+</div>
+</section>
+  </main>
+  <Footer />
+  <style is:global>
+body {
+            background-color: #faf7f2; /* Warm Minimalist Base */
+            font-family: 'Inter', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
+        }
+        .interactive-shadow:hover {
+            box-shadow: 0px 8px 30px rgba(42, 42, 42, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .meter-fill {
+            transition: width 1s ease-out;
+        }
+  </style>
+</Layout>

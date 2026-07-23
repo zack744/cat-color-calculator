@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Interactive Cat Color Chart - Coat Colors & Genetics";
+const description = "Interactive cat color chart covering base colors, dilution, tabby patterns, and orange gene series. Learn feline coat genetics.";
+---
+<Layout title={title} description={description}>
+  <Header active="chart" />
+  <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
+<!-- Layer 1: Interactive Header & Filters -->
+<section class="space-y-lg">
+<div class="text-center md:text-left">
+<h1 class="text-display-lg font-display-lg text-primary mb-md">Interactive Cat Color Chart</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Master the complexity of feline coat genetics with our interactive reference guide. Filter by genetic series to understand how colors and patterns emerge.</p>
+</div>
+<div class="bg-white p-lg rounded-xl card-shadow border border-outline-variant/50 grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Filter: Agouti -->
+<div class="space-y-sm">
+<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">dns</span> Agouti Series (A)
+                    </label>
+<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
+<option>All Types</option>
+<option>Solid (Non-Agouti)</option>
+<option>Tabby (Agouti)</option>
+</select>
+</div>
+<!-- Filter: Black/Red -->
+<div class="space-y-sm">
+<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">palette</span> Base Pigment (O)
+                    </label>
+<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
+<option>All Colors</option>
+<option>Black Series (Eumelanin)</option>
+<option>Red Series (Phaeomelanin)</option>
+<option>Tortoiseshell</option>
+</select>
+</div>
+<!-- Filter: Dilution -->
+<div class="space-y-sm">
+<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">water_drop</span> Dilution (D)
+                    </label>
+<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Full Color</option>
+<option>Dilute (Blue/Cream/Lilac)</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Layer 2: Genetic Tables & Educational Content -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<div class="lg:col-span-8 space-y-lg">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Genetic Tables</h2>
+<div class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden">
+<div class="bg-secondary-container/30 px-lg py-md border-b border-outline-variant">
+<h3 class="font-headline-md text-primary">Base Pigment &amp; Dilution Matrix</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-md font-label-md text-on-surface-variant">Series</th>
+<th class="p-md font-label-md text-on-surface-variant">Dominant (Full Color)</th>
+<th class="p-md font-label-md text-on-surface-variant">Recessive (Dilute)</th>
+</tr>
+</thead>
+<tbody class="text-body-md">
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-bold">Black</td>
+<td class="p-md">Black (Seal)</td>
+<td class="p-md">Blue (Grey)</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-bold">Chocolate</td>
+<td class="p-md">Chocolate</td>
+<td class="p-md">Lilac</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-bold">Cinnamon</td>
+<td class="p-md">Cinnamon</td>
+<td class="p-md">Fawn</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-bold">Orange</td>
+<td class="p-md">Red (Ginger)</td>
+<td class="p-md">Cream</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white p-lg rounded-xl card-shadow border border-outline-variant space-y-md">
+<h3 class="font-headline-md text-primary">How to Identify Tabby Patterns</h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Identifying tabby patterns requires looking closely at the individual hairs. The <strong>Mackerel</strong> tabby is the most common, characterized by vertical stripes like a fish skeleton. The <strong>Classic</strong> (or Blotched) tabby features circular swirls and butterfly markings on the shoulders. <strong>Spotted</strong> tabbies have distinct broken stripes forming spots, while <strong>Ticked</strong> tabbies (like the Abyssinian) have agouti-banded hairs across the whole body with no obvious stripes or spots.
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md pt-md">
+<div class="text-center p-sm bg-secondary-fixed/20 rounded-lg">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-secondary-fixed-variant">Mackerel</span>
+</div>
+<div class="text-center p-sm bg-secondary-fixed/20 rounded-lg">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-secondary-fixed-variant">Classic</span>
+</div>
+<div class="text-center p-sm bg-secondary-fixed/20 rounded-lg">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-secondary-fixed-variant">Spotted</span>
+</div>
+<div class="text-center p-sm bg-secondary-fixed/20 rounded-lg">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-secondary-fixed-variant">Ticked</span>
+</div>
+</div>
+</div>
+</div>
+<aside class="lg:col-span-4 bg-primary-fixed/30 p-lg rounded-xl border border-primary-fixed-dim sticky top-24">
+<h3 class="font-headline-md text-on-primary-fixed mb-md">Quick Genetics Tip</h3>
+<div class="space-y-md">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-body-md text-on-primary-fixed-variant">All cats are genetically tabbies. The <strong>Non-Agouti (a)</strong> gene simply masks the tabby pattern under a solid color.</p>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary">female</span>
+<p class="text-body-md text-on-primary-fixed-variant">The <strong>Orange</strong> gene is sex-linked, which is why almost all tortoiseshell cats are female.</p>
+</div>
+</div>
+<button class="w-full mt-xl py-md bg-primary text-white rounded-lg font-bold hover:bg-primary-container transition-all">
+                    Download Full PDF Guide
+                </button>
+</aside>
+</section>
+<!-- Layer 3: Color Grid -->
+<section class="space-y-lg">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">All Cat Colors</h2>
+<div class="flex items-center gap-sm text-label-md text-on-surface-variant bg-white px-md py-xs rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary"></span> 24 Colors Found
+                </div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-lg">
+<!-- Color Card: Solid Black -->
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#222] relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Solid</span>
+</div>
+<div class="w-full h-full opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity" data-alt="A macro studio photograph of thick, lustrous solid black cat fur, showing subtle depth and high-contrast lighting that highlights individual hairs. The style is minimalist and professional, set against a warm white background to emphasize the rich ebony color." style="background-image: url('/images/cats/black/0.jpg')"></div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Solid Black</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: B/B D/D a/a</p>
+</div>
+</div>
+<!-- Color Card: Blue Mackerel Tabby -->
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#7d8c97] relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Tabby</span>
+</div>
+<div class="w-full h-full opacity-40 mix-blend-soft-light group-hover:opacity-60 transition-opacity" data-alt="A detailed photographic texture of blue mackerel tabby cat fur, showing vertical slate-grey stripes over a cool silver-grey base. The lighting is soft and natural, emphasizing the subtle contrast of the blue series dilution. The overall aesthetic is clean, modern, and warm." style="background-image: url('/images/cats/blue/0.jpg')"></div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Blue Mackerel Tabby</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: B/B d/d A/- Mc/-</p>
+</div>
+</div>
+<!-- Color Card: Red Spotted Tabby -->
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#f59e0b] relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Tabby</span>
+</div>
+<div class="w-full h-full opacity-40 mix-blend-multiply group-hover:opacity-60 transition-opacity" data-alt="A high-resolution photograph of ginger cat fur with distinct dark orange spots on a lighter cream-orange background. The spotted tabby pattern is clearly visible with warm, high-key lighting. The artistic style is clinical yet friendly, fitting for a genetics reference chart." style="background-image: url('/images/cats/red-tabby/0.jpg')"></div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Red Spotted Tabby</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: O/Y A/- Sp/-</p>
+</div>
+</div>
+<!-- Color Card: Seal Tortie -->
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#3d2b1f] relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-[#3d2b1f] via-[#c2410c] to-[#3d2b1f] opacity-80"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Tortie</span>
+</div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Seal Tortoiseshell</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: B/B O/o a/a</p>
+</div>
+</div>
+<!-- More Cards (Simulated) -->
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#c0c0c0] relative">
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Solid</span>
+</div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">White</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: W/-</p>
+</div>
+</div>
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#8b4513] relative">
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Solid</span>
+</div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Chocolate</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: b/b D/D a/a</p>
+</div>
+</div>
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#d2b48c] relative">
+<div class="absolute bottom-md left-md">
+<span class="text-white text-label-sm font-label-sm bg-black/20 backdrop-blur-md px-sm py-xs rounded">Tabby</span>
+</div>
+</div>
+<div class="p-md">
+<h4 class="font-bold text-on-surface">Cream Ticked Tabby</h4>
+<p class="text-label-sm text-on-surface-variant mt-xs">Genotype: O/- d/d A/- Ti/-</p>
+</div>
+</div>
+<div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
+<div class="aspect-square bg-[#e5e7eb] border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-md">
+<span class="material-symbols-outlined text-outline text-4xl">add</span>
+<span class="text-label-md text-on-surface-variant">View All Combinations</span>
+</div>
+</div>
+</div>
+</section>
+  </main>
+  <Footer />
+  <style is:global>
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #faf7f2; /* Custom Warm Minimalism Background */
+            color: #1b1c1c;
+            font-family: 'Inter', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
+        }
+        .card-hover:hover {
+            box-shadow: 0px 8px 30px rgba(42, 42, 42, 0.08);
+            transform: translateY(-2px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #dbc2b0;
+            border-radius: 10px;
+        }
+  </style>
+</Layout>

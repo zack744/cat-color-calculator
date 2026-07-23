@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Privacy Policy - Cat Color Calculator";
+const description = "Privacy policy for Cat Color Calculator. We do not collect personal data. Pure client-side tool.";
+---
+<Layout title={title} description={description}>
+  <Header active="privacy" />
+  <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl">
+<div class="max-w-3xl mx-auto">
+<!-- Header Section -->
+<div class="mb-xl text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-primary mb-md md:text-headline-lg lg:text-display-lg">Privacy Policy</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Effective Date: January 1, 2026</p>
+</div>
+<!-- Content Card -->
+<div class="bg-white rounded-xl card-elevation-1 p-lg md:p-xl space-y-xl">
+<!-- Introduction -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Welcome to Cat Color Calculator</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                        At Cat Color Calculator, we are committed to providing a secure and transparent experience for all users. This Privacy Policy outlines how we handle information when you use our breeding genetic tools. Our philosophy is rooted in <strong>Warm Minimalism</strong>, extending even to how we treat your data: with clarity and respect.
+                    </p>
+</section>
+<!-- Data Collection -->
+<section class="flex flex-col md:flex-row gap-lg items-start">
+<div class="bg-secondary-container p-md rounded-xl shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">lock</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">No Personal Data Collection</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            We believe that your breeding data is your own. All genetic calculations performed within the tool are processed <strong>entirely on your local machine (client-side)</strong>. 
+                        </p>
+<ul class="mt-md space-y-base text-on-surface-variant">
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                Your cat's genetic traits are never uploaded to our servers.
+                            </li>
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                We do not require account registration for standard calculation tools.
+                            </li>
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                No results or inputs are stored by us.
+                            </li>
+</ul>
+</div>
+</section>
+<div class="border-t border-outline-variant/30"></div>
+<!-- Cookies -->
+<section class="flex flex-col md:flex-row gap-lg items-start">
+<div class="bg-secondary-container p-md rounded-xl shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">cookie</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Cookie Usage</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            To improve our tool's performance and understand how visitors interact with our content, we use <strong>Google Analytics</strong>. This service uses cookies to collect anonymous usage data, such as:
+                        </p>
+<ul class="mt-md space-y-base text-on-surface-variant list-disc pl-md">
+<li>Approximate geographic location (City/Country level).</li>
+<li>Device type and browser information.</li>
+<li>Time spent on specific calculation guides.</li>
+</ul>
+<p class="mt-md text-on-surface-variant italic text-label-md">
+                            You can opt-out of these cookies through your browser settings or by using the Google Analytics Opt-out Browser Add-on.
+                        </p>
+</div>
+</section>
+<div class="border-t border-outline-variant/30"></div>
+<!-- Contact -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Contact Information</h2>
+<p class="text-on-surface-variant leading-relaxed mb-lg">
+                        Have questions about our privacy practices or the genetics logic behind our tools? We’re here to help.
+                    </p>
+<div class="bg-surface-container-low p-lg rounded-lg border border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">mail</span>
+<div>
+<p class="font-label-md text-primary uppercase tracking-wider">Email Support</p>
+<p class="font-body-md text-on-surface">privacy@catcolorcalc.com</p>
+</div>
+</div>
+<a class="bg-primary text-white px-lg py-sm rounded-lg font-label-md hover:opacity-90 transition-opacity"  href="/">
+                            Send Message
+                        </a>
+</div>
+</section>
+</div>
+<!-- Image/Atmospheric Anchor -->
+<div class="mt-xl relative rounded-xl overflow-hidden h-64 card-elevation-1">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-primary/40 to-transparent"></div>
+<img src="/images/cats/red-tabby/0.jpg" alt="A serene, minimalist scene of a calico cat sitting gracefully by a large window in a sun-drenched, cream-colored room. The lighting is soft and high-key, emphasizing a warm and peaceful domestic atmosphere. The style is clean and professional, using a soft palette of ambers, creams, and warm charcoals that matches the brand's aesthetic. The cat is looking toward the light, suggesting precision and forward-thinking." loading="lazy" class="w-full h-full object-cover"/>
+<div class="absolute bottom-lg left-lg z-20">
+<p class="text-white font-headline-md">Your cat's data is safe with us.</p>
+</div>
+</div>
+</div>
+  </main>
+  <Footer />
+  <style is:global>
+body {
+            background-color: #faf7f2; /* From Style Guidance: Background Level 0 */
+            color: #1b1c1c; /* Soft Charcoal */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-elevation-1 {
+            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
+            border: 1px solid #e0d8c8;
+        }
+  </style>
+</Layout>

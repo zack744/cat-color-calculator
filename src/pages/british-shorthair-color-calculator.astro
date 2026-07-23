@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CatColorCalculator from '../components/CatColorCalculator.astro';
+
+const title = "British Shorthair Color Calculator - Blue & Lilac Genetics";
+const description = "British Shorthair color calculator. Predict Blue, Lilac, and other BSH kitten colors from parent genetics. Free tool for breeders.";
+---
+<Layout title={title} description={description}>
+  <Header active="breeds" />
+  <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
+<!-- Section 1: Hero & Calculator -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start mb-xl">
+<div class="lg:col-span-5 space-y-md">
+<nav class="flex items-center gap-2 text-label-sm text-on-surface-variant mb-4">
+<a class="hover:text-primary"  href="/">Home</a>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary"  href="/maine-coon-color-calculator/">Breeds</a>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">British Shorthair</span>
+</nav>
+<h1 class="text-display-lg font-display-lg text-on-surface leading-tight">
+                    British Shorthair <span class="text-primary">Color Calculator</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant max-w-lg">
+                    Predict the genetic outcomes for your next litter with precision. Our British Shorthair specific tool accounts for the dominant dilute and solid genes unique to the breed's heritage.
+                </p>
+<div class="flex flex-wrap gap-sm pt-4">
+<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">Dilute Specialist</span>
+<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">V2.0 Core</span>
+<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">Genetic Accuracy</span>
+</div>
+</div>
+<!-- Calculator Component -->
+<div class="lg:col-span-7">
+  <CatColorCalculator
+    variant="breed"
+    breed="british-shorthair"
+    defaultResults={[
+      { label: "Blue (Solid)", pct: 50 },
+      { label: "Lilac (Solid)", pct: 25 },
+      { label: "Black (Solid)", pct: 25 },
+    ]}
+    note="Note: British Shorthair dilute genetics simplified with the 4-gene model (B, A, O, D)."
+  />
+</div>
+</section>
+<!-- Section 2: Colors & Genetics -->
+<section class="py-xl border-t border-outline-variant/30">
+<div class="text-center mb-xl">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-md">Common British Shorthair Colors</h2>
+<p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Exploring the hallmark "Self Blue" and refined Lilac varieties that define the breed's iconic plush appearance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Blue Variety -->
+<div class="bento-item glass-card rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img src="/images/cats/blue/0.jpg" alt="A portrait of a regal British Shorthair cat with iconic blue-grey fur and brilliant copper eyes. The cat sits against a soft, creamy background that highlights its thick, plush coat. The lighting is soft and diffused, emphasizing the velvety texture of the 'Self Blue' fur. This is a high-end photography shot with a shallow depth of field, embodying the warm minimalism of the brand." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<div class="p-lg md:w-1/2 space-y-md">
+<h3 class="text-headline-md font-headline-md text-on-surface">Self Blue (Grey)</h3>
+<p class="text-body-md text-on-surface-variant">The most famous variant, known for its deep, solid blue-grey coat and striking copper eyes. This color is technically a dilution of black.</p>
+<div class="pt-4">
+<span class="text-label-sm font-bold uppercase text-primary">Key Trait</span>
+<div class="text-body-md font-medium">Uniform tone from root to tip.</div>
+</div>
+</div>
+</div>
+<!-- Lilac Variety -->
+<div class="bento-item glass-card rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img src="/images/cats/red-tabby/0.jpg" alt="A close-up of a Lilac British Shorthair kitten looking curious. Its fur has a warm, pinkish-grey tone that looks incredibly soft and dense. The background is a minimalist, high-key setting with warm beige tones. The lighting is bright yet gentle, catching the warm undertones of the lilac coat. Professional pet photography style, warm and inviting atmosphere." loading="lazy" class="w-full h-full object-cover"/>
+</div>
+<div class="p-lg md:w-1/2 space-y-md">
+<h3 class="text-headline-md font-headline-md text-on-surface">Lilac</h3>
+<p class="text-body-md text-on-surface-variant">A sophisticated, warm dove-grey with a pinkish hue. Lilac results from the combination of the chocolate gene and the dilute gene.</p>
+<div class="pt-4">
+<span class="text-label-sm font-bold uppercase text-primary">Genetic Marker</span>
+<div class="text-body-md font-medium">Chocolate (b/b) + Dilute (d/d).</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Genetics Deep Dive -->
+<div class="mt-xl glass-card rounded-xl p-lg md:p-xl bg-primary/5 border-primary/10">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="md:w-1/3 text-center md:text-left">
+<span class="material-symbols-outlined text-primary text-5xl mb-md" data-icon="biotech">biotech</span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Genetics of the British Blue</h2>
+</div>
+<div class="md:w-2/3 space-y-md">
+<p class="text-body-lg text-on-surface-variant">
+                            The iconic "Blue" color is a recessive trait. To produce a Blue kitten, both parents must either be Blue themselves or carry the dilute gene (Dd). If both parents are "Self Blue" (dd), they can <span class="font-bold text-primary">only</span> produce dilute kittens (Blue, Lilac, Cream).
+                        </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-surface p-md rounded-lg border border-outline-variant/30 text-center">
+<div class="text-headline-md font-bold text-primary">D</div>
+<div class="text-label-sm">Non-Dilute</div>
+</div>
+<div class="bg-surface p-md rounded-lg border border-outline-variant/30 text-center">
+<div class="text-headline-md font-bold text-primary">d</div>
+<div class="text-label-sm">Dilute</div>
+</div>
+<div class="bg-surface p-md rounded-lg border border-outline-variant/30 text-center">
+<div class="text-headline-md font-bold text-primary">B</div>
+<div class="text-label-sm">Black</div>
+</div>
+<div class="bg-surface p-md rounded-lg border border-outline-variant/30 text-center">
+<div class="text-headline-md font-bold text-primary">b</div>
+<div class="text-label-sm">Chocolate</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Example Outcomes -->
+<section class="py-xl">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-xl text-center">British Shorthair Example Outcomes</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-lg">
+<!-- Pairing 1 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Blue × Blue</div>
+<div class="text-body-md font-semibold">100% Blue</div>
+</div>
+<!-- Pairing 2 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#1a202c] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Black × Blue</div>
+<div class="text-body-md font-semibold">50% Black, 50% Blue</div>
+</div>
+<!-- Pairing 3 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#c3b091] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#c3b091] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Lilac × Lilac</div>
+<div class="text-body-md font-semibold">100% Lilac</div>
+</div>
+<!-- Pairing 4 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#c3b091] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Blue × Lilac</div>
+<div class="text-body-md font-semibold">Various Mix</div>
+</div>
+<!-- Pairing 5 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#483c32] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Chocolate × Blue</div>
+<div class="text-body-md font-semibold">50% Black / Carriers</div>
+</div>
+<!-- Pairing 6 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#fbd38d] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Cream × Blue</div>
+<div class="text-body-md font-semibold">Blue-Cream Females</div>
+</div>
+<!-- Pairing 7 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#ffffff] border-2 border-outline-variant shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">White × Blue</div>
+<div class="text-body-md font-semibold">Blue/White Bicolors</div>
+</div>
+<!-- Pairing 8 -->
+<div class="bento-item glass-card rounded-xl p-md flex flex-col items-center text-center">
+<div class="flex gap-2 mb-md">
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-[#4a5568] border-2 border-white shadow-sm"></div>
+</div>
+<div class="text-label-sm font-bold text-primary mb-xs">Tabby × Blue</div>
+<div class="text-body-md font-semibold">Solid & Patterned</div>
+</div>
+</div>
+</section>
+<!-- Other Breeds Section -->
+<section class="py-xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Other Breed Calculators</h2>
+<p class="text-body-md text-on-surface-variant">Genetic tools customized for specific feline heritage.</p>
+</div>
+<a class="text-primary font-bold hover:underline"  href="/maine-coon-color-calculator/">View All Breeds</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<a class="group"  href="/persian-cat-color-calculator/">
+<div class="relative h-40 rounded-xl overflow-hidden mb-md">
+<img src="/images/cats/persian/0.jpg" alt="A fluffy Persian cat with long white fur sitting elegantly. High-key, clean studio background. Soft aesthetic." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<span class="text-white font-bold">Persian</span>
+</div>
+</div>
+</a>
+<a class="group"  href="/">
+<div class="relative h-40 rounded-xl overflow-hidden mb-md">
+<img src="/images/cats/persian/0.jpg" alt="A sleek Siamese cat with distinctive points on its ears and face. Modern minimalist setting." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<span class="text-white font-bold">Siamese</span>
+</div>
+</div>
+</a>
+<a class="group"  href="/maine-coon-color-calculator/">
+<div class="relative h-40 rounded-xl overflow-hidden mb-md">
+<img src="/images/cats/brown-tabby/0.jpg" alt="A large, majestic Maine Coon cat with thick tabby fur and tufted ears. Natural soft lighting." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<span class="text-white font-bold">Maine Coon</span>
+</div>
+</div>
+</a>
+<a class="group"  href="/">
+<div class="relative h-40 rounded-xl overflow-hidden mb-md">
+<img src="/images/cats/blue/0.jpg" alt="A sleek Russian Blue cat with shimmering silvery fur and green eyes. Sophisticated grey tones." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<span class="text-white font-bold">Russian Blue</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+  </main>
+  <Footer />
+  <style is:global>
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e0d8c8;
+            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
+        }
+        .bento-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 30px rgba(42, 42, 42, 0.08);
+        }
+  </style>
+</Layout>

@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CatColorCalculator from '../components/CatColorCalculator.astro';
+
+const title = "Persian Cat Color Calculator - Predict Kitten Colors";
+const description = "Persian cat color calculator. Predict Persian kitten coat colors including dilute, bicolor, calico, and smoke. Free genetics tool.";
+---
+<Layout title={title} description={description}>
+  <Header active="breeds" />
+  <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
+<!-- Layer 1: H1 & Breed Calculator -->
+<section class="mb-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<div class="lg:col-span-5 flex flex-col gap-md">
+<span class="text-primary font-label-md tracking-wider flex items-center gap-2 uppercase">
+<span class="material-symbols-outlined text-[18px]">verified</span> v2.0 Calculator
+                    </span>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Persian Cat Color Calculator - Predict Kitten Colors</h1>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        Design the future of your cattery with precision. Our Persian-specific genetics engine accounts for longhair modifiers, bicolor spotting, and the complex dilute factors unique to the Persian breed.
+                    </p>
+<div class="flex flex-wrap gap-sm mt-sm">
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Bicolor Ready
+                        </span>
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Calico Logic
+                        </span>
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Smoke &amp; Tabby
+                        </span>
+</div>
+</div>
+<div class="lg:col-span-7">
+  <CatColorCalculator
+    variant="breed"
+    breed="persian"
+    defaultResults={[
+      { label: "Tortoiseshell (F)", pct: 25 },
+      { label: "Black (M)", pct: 25 },
+      { label: "Red (M)", pct: 25 },
+      { label: "Black Tortie (F)", pct: 25 },
+    ]}
+    note="Note: Persian white spotting & colorpoint are not fully modeled; core B/A/O/D probabilities shown."
+  />
+</div>
+</div>
+</section>
+<!-- Layer 2: Common Colors & Genetics -->
+<section class="mb-xl grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<div class="lg:col-span-7">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">palette</span>
+                    Common Persian Colors
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="tonal-layer-1 rounded-xl overflow-hidden group">
+<div class="h-40 bg-cover bg-center" data-alt="A majestic, high-contrast photograph of a purebred Persian cat with a stunning bicolor coat of stark white and deep black. The cat has iconic round copper eyes and a plush, voluminous longhair coat. The lighting is soft and studio-quality against a warm, cream-colored background, emphasizing the luxurious texture of the fur." style="background-image: url('/images/cats/persian/0.jpg')"></div>
+<div class="p-md">
+<h3 class="font-bold text-on-surface">Bicolors &amp; Harlequins</h3>
+<p class="text-label-sm text-on-surface-variant mt-xs leading-snug">White patches combined with any solid or tabby color. Extremely sought after in show circuits.</p>
+</div>
+</div>
+<div class="tonal-layer-1 rounded-xl overflow-hidden group">
+<div class="h-40 bg-cover bg-center" data-alt="Close-up portrait of a Calico Persian kitten with vivid patches of orange, black, and crisp white. The kitten sits on a soft velvet cushion, its large, wide-set eyes looking curiously at the camera. The image uses a shallow depth of field, highlighting the intricate pattern of the tortoiseshell-and-white longhair coat in a bright, modern interior." style="background-image: url('/images/cats/tortoiseshell/0.jpg')"></div>
+<div class="p-md">
+<h3 class="font-bold text-on-surface">Calicos &amp; Torties</h3>
+<p class="text-label-sm text-on-surface-variant mt-xs leading-snug">The iconic mosaic of black, red, and white. Genetically tied to the X chromosome.</p>
+</div>
+</div>
+<div class="tonal-layer-1 rounded-xl overflow-hidden group">
+<div class="h-40 bg-cover bg-center" data-alt="A professional cattery photo of a Blue-Cream Persian cat, showing a delicate blend of soft grey and pale cream fur. The cat is elegantly posed on a wooden surface, with soft natural light streaming in from a side window, highlighting the smoky undercoat and the incredibly fine texture of the Persian hair." style="background-image: url('/images/cats/blue-cream/0.jpg')"></div>
+<div class="p-md">
+<h3 class="font-bold text-on-surface">Dilutes</h3>
+<p class="text-label-sm text-on-surface-variant mt-xs leading-snug">Pastel versions like Blue (from Black) and Cream (from Red). High demand for their soft aesthetic.</p>
+</div>
+</div>
+<div class="tonal-layer-1 rounded-xl overflow-hidden group">
+<div class="h-40 bg-cover bg-center" data-alt="A high-end photography shot of a Silver Shaded Persian cat, displaying its shimmering white coat with fine black tipping. The cat's striking green eyes are rimmed with black, creating a dramatic, Kohl-like appearance. The setting is minimalist and modern, using neutral tones to make the cat's ethereal appearance stand out." style="background-image: url('/images/cats/persian/1.jpg')"></div>
+<div class="p-md">
+<h3 class="font-bold text-on-surface">Smokes &amp; Shaded</h3>
+<p class="text-label-sm text-on-surface-variant mt-xs leading-snug">A white undercoat that creates a 'glowing' effect as the cat moves. Pure genetics magic.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="bg-surface-container p-lg rounded-xl h-full border border-outline-variant/30">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dns</span>
+                        Persian Coat Genetics
+                    </h2>
+<ul class="space-y-lg">
+<li class="flex gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
+<div>
+<h4 class="font-bold text-on-surface">The Polygenes Factor</h4>
+<p class="text-body-md text-on-surface-variant">Unlike short-haired breeds, Persians rely on multiple genes to maintain their distinctive ultra-long 'peaked' coat texture.</p>
+</div>
+</li>
+<li class="flex gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
+<div>
+<h4 class="font-bold text-on-surface">The Dilute Gene (d/d)</h4>
+<p class="text-body-md text-on-surface-variant">Recessive dilution turns Black into Blue and Red into Cream. Both parents must carry the gene to produce dilute kittens.</p>
+</div>
+</li>
+<li class="flex gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
+<div>
+<h4 class="font-bold text-on-surface">Bicolor Masking</h4>
+<p class="text-label-md bg-secondary-container text-on-secondary-container inline-block px-2 rounded mt-xs">Advanced genetic alert</p>
+<p class="text-body-md text-on-surface-variant mt-1">High-grade white spotting can mask the cat's underlying tabby pattern, often appearing as 'ghost markings' in kittens.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Layer 3: Example Outcomes -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-md">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Persian Example Outcomes</h2>
+<p class="text-on-surface-variant">Common breeding pairings and their statistical probability.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container hover:bg-surface-container-high p-md rounded-full transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="bg-primary text-on-primary p-md rounded-full hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Pairing Card 1 -->
+<div class="tonal-layer-1 p-md rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center justify-between mb-md">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-on-surface"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-red-400"></div>
+</div>
+<span class="text-label-sm font-bold text-primary">High Prob.</span>
+</div>
+<h4 class="font-bold text-on-surface mb-xs">Black × Red Pairing</h4>
+<p class="text-label-sm text-on-surface-variant mb-md">Expected: 50% Tortoiseshell (Females)</p>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<!-- Pairing Card 2 -->
+<div class="tonal-layer-1 p-md rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center justify-between mb-md">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-blue-300"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-blue-300"></div>
+</div>
+<span class="text-label-sm font-bold text-primary">100% Guaranteed</span>
+</div>
+<h4 class="font-bold text-on-surface mb-xs">Blue × Blue Pairing</h4>
+<p class="text-label-sm text-on-surface-variant mb-md">Expected: 100% Blue Kittens</p>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Pairing Card 3 -->
+<div class="tonal-layer-1 p-md rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center justify-between mb-md">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-gray-500"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-orange-200"></div>
+</div>
+<span class="text-label-sm font-bold text-primary">Complex Outcome</span>
+</div>
+<h4 class="font-bold text-on-surface mb-xs">Blue × Cream Pairing</h4>
+<p class="text-label-sm text-on-surface-variant mb-md">Expected: Blue-Cream &amp; Cream</p>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Pairing Card 4 -->
+<div class="tonal-layer-1 p-md rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center justify-between mb-md">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-stone-300"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-red-600"></div>
+</div>
+<span class="text-label-sm font-bold text-primary">Low Prob.</span>
+</div>
+<h4 class="font-bold text-on-surface mb-xs">Smoke × Solid Red</h4>
+<p class="text-label-sm text-on-surface-variant mb-md">Expected: Cameo (Red Smoke)</p>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Other Breeds Section -->
+<section class="mb-xl bg-surface-container-low p-lg rounded-2xl border border-outline-variant/20">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Explore Other Breeds</h2>
+<a class="text-primary font-bold text-label-md flex items-center gap-1 hover:underline"  href="/maine-coon-color-calculator/">
+                    View All <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="flex gap-md overflow-x-auto pb-md custom-scrollbar">
+<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
+</div>
+<span class="font-bold text-on-surface block">Maine Coon</span>
+<span class="text-label-sm text-on-surface-variant">Wild Patterns</span>
+</div>
+<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
+</div>
+<span class="font-bold text-on-surface block">British Shorthair</span>
+<span class="text-label-sm text-on-surface-variant">Blue Genetics</span>
+</div>
+<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
+</div>
+<span class="font-bold text-on-surface block">Ragdoll</span>
+<span class="text-label-sm text-on-surface-variant">Point Coloration</span>
+</div>
+<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
+</div>
+<span class="font-bold text-on-surface block">Siamese</span>
+<span class="text-label-sm text-on-surface-variant">Temperature Genes</span>
+</div>
+<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
+</div>
+<span class="font-bold text-on-surface block">Sphynx</span>
+<span class="text-label-sm text-on-surface-variant">Skin Pigmentation</span>
+</div>
+</div>
+</section>
+  </main>
+  <Footer />
+  <style is:global>
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layer-1 {
+            background-color: #ffffff;
+            border: 1px solid #e0d8c8;
+            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
+        }
+        .tonal-layer-2 {
+            box-shadow: 0px 8px 30px rgba(42, 42, 42, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e0d8c8;
+            border-radius: 10px;
+        }
+  </style>
+</Layout>

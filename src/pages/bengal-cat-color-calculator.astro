@@ -1,0 +1,331 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CatColorCalculator from '../components/CatColorCalculator.astro';
+
+const title = "Bengal Cat Color Calculator - Spotted & Snow Genetics";
+const description = "Bengal cat color calculator. Predict Bengal kitten colors: brown spotted, snow, silver, charcoal. Free feline genetics tool.";
+---
+<Layout title={title} description={description}>
+  <Header active="breeds" />
+  <main class="space-y-0">
+<!-- Layer 1: Hero & Calculator -->
+<section class="relative py-xl bg-gradient-to-b from-surface to-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-lg md:px-xl relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div>
+<nav class="mb-md flex items-center gap-2 text-label-sm text-on-surface-variant">
+<a class="hover:text-primary"  href="/">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary"  href="/maine-coon-color-calculator/">Breeds</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Bengal</span>
+</nav>
+<h1 class="text-display-lg font-display-lg text-primary mb-md leading-tight">
+                            Bengal Cat Color Calculator <br/>
+<span class="text-on-surface font-headline-md block mt-2">Predict Kitten Colors &amp; Patterns</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant mb-xl max-w-lg">
+                            Utilize our advanced genetic algorithms specific to the Bengal breed to predict possible litter outcomes based on parental genotypes, including Snow variants and Silver modifiers.
+                        </p>
+<div class="flex items-center gap-lg">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">science</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-sm">auto_awesome</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-sm">genetics</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">V2.0 Core Engine</span>
+</div>
+</div>
+<!-- Calculator Tool Card -->
+<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(42,42,42,0.05)] border border-outline-variant p-lg md:p-xl">
+  <div class="flex items-center justify-between mb-lg">
+    <h3 class="text-headline-md font-headline-md text-on-surface">Breeding Pair</h3>
+    <div class="px-sm py-1 bg-primary-fixed text-on-primary-fixed text-label-sm rounded-full">Breed-Specific: Bengal</div>
+  </div>
+  <CatColorCalculator
+    variant="breed"
+    breed="bengal"
+    defaultResults={[
+      { label: "Brown Tabby (M)", pct: 25 },
+      { label: "Brown Tabby (F)", pct: 25 },
+      { label: "Black (M)", pct: 12.5 },
+      { label: "Black (F)", pct: 12.5 },
+    ]}
+    note="Note: Bengal snow/charcoal/glitter modifiers are informational; core coat color uses the 4-gene model."
+  />
+</div>
+</div>
+</div>
+</section>
+<!-- Layer 2: Common Colors & Specific Markers -->
+<section class="py-xl bg-white">
+<div class="max-w-container-max mx-auto px-lg md:px-xl">
+<div class="mb-xl text-center md:text-left">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-sm">Common Bengal Colors</h2>
+<p class="text-on-surface-variant max-w-2xl">The Bengal breed is renowned for its wild leopard-like appearance. These are the three most prevalent color groups recognized by major registries.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Brown Spotted -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-[4/3] overflow-hidden">
+<img src="/images/cats/bengal/0.jpg" alt="A high-resolution close-up of a Brown Spotted Bengal cat with vibrant orange-gold undercoat and distinct black rosettes. The lighting is soft and warm, emphasizing the sleek, glittered coat. The background is a minimalist beige, keeping focus on the intricate pelt patterns. Professional feline photography style." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+</div>
+<div class="p-lg">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-3 h-3 rounded-full bg-[#8d4b00]"></div>
+<h3 class="font-bold text-lg">Brown (Black) Spotted</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-md">The most traditional 'wild' look. Ranges from cool sandy tones to warm reddish-gold rufous colors.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">B/B or B/b</span>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">Tabby</span>
+</div>
+</div>
+</div>
+<!-- Snow -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-[4/3] overflow-hidden">
+<img src="/images/cats/bengal/1.jpg" alt="A stunning Snow Bengal cat with a creamy white coat and light brown marble patterns. Its eyes are a striking blue, typical of the Lynx point variant. The lighting is bright and clean, giving a pristine light-mode aesthetic. The setting is a minimalist modern room with wood accents. Detailed texture on the fur." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+</div>
+<div class="p-lg">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-3 h-3 rounded-full bg-white border border-outline-variant"></div>
+<h3 class="font-bold text-lg">Snow Variants</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-md">Divided into Lynx Point, Mink, and Sepia. Often characterized by lighter coats and blue or aqua eyes.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">cs/cs or cb/cs</span>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">Albino Series</span>
+</div>
+</div>
+</div>
+<!-- Silver -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-[4/3] overflow-hidden">
+<img src="/images/cats/bengal/2.jpg" alt="A Silver Bengal cat with a clear, icy white-silver background and sharp black charcoal-like rosettes. The coat has a high-contrast monochromatic look. The cat is looking directly at the camera with emerald green eyes. Lighting is cool and balanced. High-end luxury pet photography style." loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+</div>
+<div class="p-lg">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+<h3 class="font-bold text-lg">Silver Modifiers</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-md">An Inhibitor gene (I) that strips color from the hair shaft, leaving a clear, icy white background.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">I/I or I/i</span>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold rounded">Inhibitor</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bengal Specific Markers -->
+<div class="bg-tertiary-fixed rounded-2xl p-lg md:p-xl border border-outline-variant/50">
+<h2 class="text-headline-md font-headline-md text-on-tertiary-fixed-variant mb-lg flex items-center gap-2">
+<span class="material-symbols-outlined">dns</span>
+                        Bengal Specific Markers
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<div class="bg-surface/50 p-md rounded-xl">
+<h4 class="font-bold text-primary mb-1">Glitter Gene</h4>
+<p class="text-sm text-on-tertiary-fixed-variant">A unique hollow hair shaft that reflects light, giving the coat an iridescent shimmer.</p>
+</div>
+<div class="bg-surface/50 p-md rounded-xl">
+<h4 class="font-bold text-primary mb-1">Charcoal (Apb)</h4>
+<p class="text-sm text-on-tertiary-fixed-variant">Derived from the Asian Leopard Cat, creating a dark 'mask' and 'cape' effect over the pattern.</p>
+</div>
+<div class="bg-surface/50 p-md rounded-xl">
+<h4 class="font-bold text-primary mb-1">Rosetting</h4>
+<p class="text-sm text-on-tertiary-fixed-variant">Distinct from standard spots, featuring a darker outline around a lighter colored center.</p>
+</div>
+<div class="bg-surface/50 p-md rounded-xl">
+<h4 class="font-bold text-primary mb-1">Snow Hybridization</h4>
+<p class="text-sm text-on-tertiary-fixed-variant">The interaction between the Colorpoint (cs) and Burmese (cb) alleles unique to Bengal lines.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Layer 3: Bengal Example Outcomes -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-lg md:px-xl">
+<div class="mb-xl text-center">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Bengal Example Outcomes</h2>
+<div class="h-1 w-20 bg-primary mx-auto mt-sm"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Pairing 1 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-center mb-md">
+<span class="text-label-sm font-bold bg-secondary-container px-2 py-1 rounded text-on-secondary-container">Pairing 01</span>
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant mb-1 uppercase">S: Brown Spotted</p>
+<p class="text-xs font-bold text-on-surface-variant mb-md uppercase">D: Brown Spotted</p>
+<div class="h-[1px] bg-outline-variant/30 mb-md"></div>
+<h4 class="text-label-md font-bold text-on-surface mb-2">Predicted Outcome:</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm">100% Brown Spotted</span>
+<div class="w-12 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Pairing 2 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-center mb-md">
+<span class="text-label-sm font-bold bg-secondary-container px-2 py-1 rounded text-on-secondary-container">Pairing 02</span>
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant mb-1 uppercase">S: Brown (Carries Snow)</p>
+<p class="text-xs font-bold text-on-surface-variant mb-md uppercase">D: Snow Lynx Point</p>
+<div class="h-[1px] bg-outline-variant/30 mb-md"></div>
+<h4 class="text-label-md font-bold text-on-surface mb-2">Predicted Outcome:</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm">50% Brown</span>
+<div class="w-6 h-2 bg-primary rounded-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">50% Snow Lynx</span>
+<div class="w-6 h-2 bg-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Pairing 3 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-center mb-md">
+<span class="text-label-sm font-bold bg-secondary-container px-2 py-1 rounded text-on-secondary-container">Pairing 03</span>
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant mb-1 uppercase">S: Silver Spotted</p>
+<p class="text-xs font-bold text-on-surface-variant mb-md uppercase">D: Brown Spotted</p>
+<div class="h-[1px] bg-outline-variant/30 mb-md"></div>
+<h4 class="text-label-md font-bold text-on-surface mb-2">Predicted Outcome:</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm">50% Silver</span>
+<div class="w-6 h-2 bg-primary-fixed-dim rounded-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">50% Brown</span>
+<div class="w-6 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Pairing 4 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-center mb-md">
+<span class="text-label-sm font-bold bg-secondary-container px-2 py-1 rounded text-on-secondary-container">Pairing 04</span>
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant mb-1 uppercase">S: Snow Mink</p>
+<p class="text-xs font-bold text-on-surface-variant mb-md uppercase">D: Snow Mink</p>
+<div class="h-[1px] bg-outline-variant/30 mb-md"></div>
+<h4 class="text-label-md font-bold text-on-surface mb-2">Predicted Outcome:</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm">50% Snow Mink</span>
+<div class="w-6 h-2 bg-secondary rounded-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">25% Sepia / 25% Lynx</span>
+<div class="w-6 h-2 bg-secondary-fixed rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- View More Button -->
+<div class="mt-xl text-center">
+<button class="text-primary font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
+                        See All 48 Breeding Combinations
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Other Breeds Section -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-lg md:px-xl">
+<div class="flex items-end justify-between mb-xl">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Explore Other Breeds</h2>
+<p class="text-on-surface-variant">Switch breed genetics for more precise results.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-md">
+<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
+<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">pets</span>
+</div>
+<span class="text-label-md font-bold">Ragdoll</span>
+</a>
+<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/maine-coon-color-calculator/">
+<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">pets</span>
+</div>
+<span class="text-label-md font-bold">Maine Coon</span>
+</a>
+<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
+<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">pets</span>
+</div>
+<span class="text-label-md font-bold">Siamese</span>
+</a>
+<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
+<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">pets</span>
+</div>
+<span class="text-label-md font-bold">Abyssinian</span>
+</a>
+<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/persian-cat-color-calculator/">
+<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">pets</span>
+</div>
+<span class="text-label-md font-bold">Persian</span>
+</a>
+</div>
+</div>
+</section>
+  </main>
+  <Footer />
+  <style is:global>
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e0d8c8;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 10px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+  </style>
+</Layout>
