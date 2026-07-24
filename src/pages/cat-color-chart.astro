@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = "Interactive Cat Color Chart - Coat Colors & Genetics";
-const description = "Interactive cat color chart covering base colors, dilution, tabby patterns, and orange gene series. Learn feline coat genetics.";
+const title = "Cat Color Chart - Coat Colors & Genetics";
+const description = "Reference chart for cat coat colors: black series, dilute, tabby, orange, and tortie. Companion to the free genetics calculator.";
 ---
 <Layout title={title} description={description}>
   <Header active="chart" />
@@ -12,43 +12,8 @@ const description = "Interactive cat color chart covering base colors, dilution,
 <!-- Layer 1: Interactive Header & Filters -->
 <section class="space-y-lg">
 <div class="text-center md:text-left">
-<h1 class="text-display-lg font-display-lg text-primary mb-md">Interactive Cat Color Chart</h1>
-<p class="text-body-lg text-on-surface-variant max-w-2xl">Master the complexity of feline coat genetics with our interactive reference guide. Filter by genetic series to understand how colors and patterns emerge.</p>
-</div>
-<div class="bg-white p-lg rounded-xl card-shadow border border-outline-variant/50 grid grid-cols-1 md:grid-cols-3 gap-lg">
-<!-- Filter: Agouti -->
-<div class="space-y-sm">
-<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-primary scale-90">dns</span> Agouti Series (A)
-                    </label>
-<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
-<option>All Types</option>
-<option>Solid (Non-Agouti)</option>
-<option>Tabby (Agouti)</option>
-</select>
-</div>
-<!-- Filter: Black/Red -->
-<div class="space-y-sm">
-<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-primary scale-90">palette</span> Base Pigment (O)
-                    </label>
-<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
-<option>All Colors</option>
-<option>Black Series (Eumelanin)</option>
-<option>Red Series (Phaeomelanin)</option>
-<option>Tortoiseshell</option>
-</select>
-</div>
-<!-- Filter: Dilution -->
-<div class="space-y-sm">
-<label class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-primary scale-90">water_drop</span> Dilution (D)
-                    </label>
-<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
-<option>Full Color</option>
-<option>Dilute (Blue/Cream/Lilac)</option>
-</select>
-</div>
+<h1 class="text-display-lg font-display-lg text-primary mb-md">Cat color chart</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Reference tables for the colors produced by black series, dilute, agouti, and orange — the same four loci as the calculator.</p>
 </div>
 </section>
 <!-- Layer 2: Genetic Tables & Educational Content -->
@@ -126,9 +91,7 @@ const description = "Interactive cat color chart covering base colors, dilution,
 <p class="text-body-md text-on-primary-fixed-variant">The <strong>Orange</strong> gene is sex-linked, which is why almost all tortoiseshell cats are female.</p>
 </div>
 </div>
-<button class="w-full mt-xl py-md bg-primary text-white rounded-lg font-bold hover:bg-primary-container transition-all">
-                    Download Full PDF Guide
-                </button>
+<a href="/" class="btn-primary w-full mt-xl text-center">Open calculator</a>
 </aside>
 </section>
 <!-- Layer 3: Color Grid -->
@@ -147,8 +110,8 @@ const description = "Interactive cat color chart covering base colors, dilution,
   { name: 'Red Tabby', genotype: 'O/Y A/- D/-', tag: 'Tabby', img: '/images/cats/red-tabby/0.jpg' },
   { name: 'Tortoiseshell', genotype: 'B/- O/o a/a', tag: 'Tortie', img: '/images/cats/tortoiseshell/0.jpg' },
   { name: 'Blue-Cream', genotype: 'B/- O/o d/d', tag: 'Tortie', img: '/images/cats/blue-cream/0.jpg' },
-  { name: 'Cream Point', genotype: 'cs/cs O/- d/d', tag: 'Point', img: '/images/cats/cream/0.jpg' },
-  { name: 'Silver / Pale', genotype: 'I/- A/-', tag: 'Silver', img: '/images/cats/persian/1.jpg' },
+  { name: 'Cream', genotype: 'O- d/d', tag: 'Orange', img: '/images/cats/cream/0.jpg' },
+  { name: 'Chocolate', genotype: 'b/b D/- a/a', tag: 'Solid', img: '/images/cats/chocolate/0.jpg' },
 ].map((c) => (
 <div class="group cursor-pointer bg-white rounded-xl border border-outline-variant overflow-hidden card-shadow card-hover transition-all">
 <div class="aspect-square relative overflow-hidden bg-surface-container">

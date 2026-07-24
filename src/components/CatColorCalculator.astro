@@ -2,19 +2,12 @@
 interface Props {
   variant?: 'home' | 'breed';
   breed?: string;
-  defaultResults?: { label: string; pct: number }[];
   note?: string;
 }
 const {
   variant = 'home',
   breed = 'general',
-  defaultResults = [
-    { label: 'Black Tortie Tabby (F)', pct: 25 },
-    { label: 'Black Tabby (M)', pct: 25 },
-    { label: 'Red Tabby (M)', pct: 25 },
-    { label: 'Red Tortie Tabby (F)', pct: 25 },
-  ],
-  note = 'Note: Simplified 4-gene model (B, A, O, D). Real litters also depend on white spotting, colorpoint, silver, and other loci.',
+  note = 'Model covers B (black series), A (agouti), D (dilute), and O (orange/X). Not included: white spotting, silver/smoke, colorpoint, tabby pattern type. Use DNA tests when decisions matter.',
 } = Astro.props;
 
 const isHome = variant === 'home';
@@ -22,115 +15,109 @@ const formId = `calc-form-${breed}-${variant}`;
 const resultsId = `calc-results-${breed}-${variant}`;
 
 const selectClass =
-  'w-full rounded-lg border border-outline-variant bg-surface-container-low p-3 text-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none';
+  'w-full rounded-full border-2 border-outline-variant bg-surface-container-low px-4 py-2.5 text-body-md text-on-surface focus:border-focus focus:ring-2 focus:ring-focus/20 outline-none transition-shadow';
 const labelClass = 'text-label-md font-label-md text-on-surface-variant';
-const toggleActive = 'border-primary bg-primary-fixed text-primary font-bold';
-const toggleIdle = 'border-outline-variant hover:bg-surface-container-high';
 ---
 <div class="calc-root" data-variant={variant} data-breed={breed} data-form-id={formId} data-results-id={resultsId}>
   <div class:list={[isHome ? 'grid grid-cols-1 lg:grid-cols-12 gap-lg items-start' : 'grid grid-cols-1 lg:grid-cols-3 gap-lg items-start']}>
     <div class:list={[
       isHome
-        ? 'lg:col-span-8 bg-surface-container-lowest rounded-xl p-lg border border-outline-variant/30 shadow-sm space-y-lg'
-        : 'lg:col-span-2 bg-white rounded-xl border border-outline-variant/50 p-lg card-shadow space-y-lg',
+        ? 'lg:col-span-8 bg-surface-container-lowest rounded-2xl p-lg border border-outline-variant/40 card-shadow space-y-lg'
+        : 'lg:col-span-2 bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-lg card-shadow space-y-lg',
     ]}>
       <form id={formId} class="space-y-lg" novalidate>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Pick genotypes for each parent. <strong class="text-on-surface">Carrier</strong> options (e.g. Dd, Aa, Bb) matter — two dense carriers can still produce dilute kittens.
+        </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
-          <!-- Sire -->
           <div class="space-y-md">
-            <div class="flex items-center gap-2 text-primary font-bold">
-              <span class="material-symbols-outlined">male</span>
-              <h3 class:list={[isHome ? 'text-headline-md font-headline-md' : 'text-label-md uppercase tracking-wider']}>Sire (Father)</h3>
-            </div>
+            <h3 class="text-headline-md font-headline-md text-primary">Sire (Father)</h3>
             <div class="space-y-md">
               <div class="space-y-1">
-                <label class={labelClass} for={`${formId}-sire_B`}>Primary Base (Black series)</label>
+                <label class={labelClass} for={`${formId}-sire_B`}>Black series (B &gt; b &gt; bl)</label>
                 <select id={`${formId}-sire_B`} name="sire_B" class={selectClass}>
-                  <option value="B_">Black (B/-)</option>
-                  <option value="bb">Chocolate (b/b)</option>
-                  <option value="blbl">Cinnamon (bl/bl)</option>
+                  <option value="BB">Black BB</option>
+                  <option value="Bb">Black, carries chocolate (Bb)</option>
+                  <option value="Bbl">Black, carries cinnamon (B/bl)</option>
+                  <option value="bb">Chocolate bb</option>
+                  <option value="bbl">Chocolate, carries cinnamon (b/bl)</option>
+                  <option value="blbl">Cinnamon bl/bl</option>
                 </select>
               </div>
               <div class="space-y-1">
-                <label class={labelClass} for={`${formId}-sire_A`}>Pattern (Agouti / Tabby)</label>
+                <label class={labelClass} for={`${formId}-sire_A`}>Agouti (tabby vs solid)</label>
                 <select id={`${formId}-sire_A`} name="sire_A" class={selectClass}>
-                  <option value="aa">Solid (Non-Agouti aa)</option>
-                  <option value="A_">Tabby (Agouti A/-)</option>
+                  <option value="aa">Solid aa</option>
+                  <option value="Aa">Tabby, carries solid (Aa)</option>
+                  <option value="AA">Tabby AA</option>
                 </select>
               </div>
               <div class="space-y-1">
-                <span class={labelClass}>Orange Gene (X-linked)</span>
-                <div class="flex gap-2 toggle-group" data-name="sire_O" role="group" aria-label="Sire orange gene">
-                  <button type="button" data-value="oo" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleActive}`}>Not Orange</button>
-                  <button type="button" data-value="OO" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleIdle}`}>Orange</button>
-                </div>
-                <input type="hidden" name="sire_O" value="oo" />
+                <label class={labelClass} for={`${formId}-sire_O`}>Orange (X-linked)</label>
+                <select id={`${formId}-sire_O`} name="sire_O" class={selectClass}>
+                  <option value="oY">Not orange (o/Y)</option>
+                  <option value="OY">Orange (O/Y)</option>
+                </select>
               </div>
               <div class="space-y-1">
-                <span class={labelClass}>Dilution</span>
-                <div class="flex gap-2 toggle-group" data-name="sire_D" role="group" aria-label="Sire dilution">
-                  <button type="button" data-value="D_" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleActive}`}>Dense</button>
-                  <button type="button" data-value="dd" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleIdle}`}>Dilute</button>
-                </div>
-                <input type="hidden" name="sire_D" value="D_" />
+                <label class={labelClass} for={`${formId}-sire_D`}>Dilute</label>
+                <select id={`${formId}-sire_D`} name="sire_D" class={selectClass}>
+                  <option value="DD">Dense DD</option>
+                  <option value="Dd">Dense, carries dilute (Dd)</option>
+                  <option value="dd">Dilute dd</option>
+                </select>
               </div>
             </div>
           </div>
 
-          <!-- Dam -->
           <div class="space-y-md">
-            <div class="flex items-center gap-2 text-on-secondary-container font-bold">
-              <span class="material-symbols-outlined">female</span>
-              <h3 class:list={[isHome ? 'text-headline-md font-headline-md' : 'text-label-md uppercase tracking-wider']}>Dam (Mother)</h3>
-            </div>
+            <h3 class="text-headline-md font-headline-md text-on-secondary-container">Dam (Mother)</h3>
             <div class="space-y-md">
               <div class="space-y-1">
-                <label class={labelClass} for={`${formId}-dam_B`}>Primary Base (Black series)</label>
+                <label class={labelClass} for={`${formId}-dam_B`}>Black series (B &gt; b &gt; bl)</label>
                 <select id={`${formId}-dam_B`} name="dam_B" class={selectClass}>
-                  <option value="B_">Black (B/-)</option>
-                  <option value="bb">Chocolate (b/b)</option>
-                  <option value="blbl">Cinnamon (bl/bl)</option>
+                  <option value="BB">Black BB</option>
+                  <option value="Bb">Black, carries chocolate (Bb)</option>
+                  <option value="Bbl">Black, carries cinnamon (B/bl)</option>
+                  <option value="bb">Chocolate bb</option>
+                  <option value="bbl">Chocolate, carries cinnamon (b/bl)</option>
+                  <option value="blbl">Cinnamon bl/bl</option>
                 </select>
               </div>
               <div class="space-y-1">
-                <label class={labelClass} for={`${formId}-dam_A`}>Pattern (Agouti / Tabby)</label>
+                <label class={labelClass} for={`${formId}-dam_A`}>Agouti (tabby vs solid)</label>
                 <select id={`${formId}-dam_A`} name="dam_A" class={selectClass}>
-                  <option value="A_" selected>Tabby (Agouti A/-)</option>
-                  <option value="aa">Solid (Non-Agouti aa)</option>
+                  <option value="Aa" selected>Tabby, carries solid (Aa)</option>
+                  <option value="AA">Tabby AA</option>
+                  <option value="aa">Solid aa</option>
                 </select>
               </div>
               <div class="space-y-1">
-                <span class={labelClass}>Orange Gene (X-linked)</span>
-                <div class="flex gap-2 toggle-group" data-name="dam_O" role="group" aria-label="Dam orange gene">
-                  <button type="button" data-value="oo" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleIdle}`}>Not Orange</button>
-                  <button type="button" data-value="Oo" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleActive}`}>Tortoiseshell</button>
-                  <button type="button" data-value="OO" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleIdle}`}>Orange</button>
-                </div>
-                <input type="hidden" name="dam_O" value="Oo" />
+                <label class={labelClass} for={`${formId}-dam_O`}>Orange (X-linked)</label>
+                <select id={`${formId}-dam_O`} name="dam_O" class={selectClass}>
+                  <option value="Oo" selected>Tortoiseshell (Oo)</option>
+                  <option value="oo">Not orange (oo)</option>
+                  <option value="OO">Orange (OO)</option>
+                </select>
               </div>
               <div class="space-y-1">
-                <span class={labelClass}>Dilution</span>
-                <div class="flex gap-2 toggle-group" data-name="dam_D" role="group" aria-label="Dam dilution">
-                  <button type="button" data-value="D_" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleIdle}`}>Dense</button>
-                  <button type="button" data-value="dd" class={`toggle-btn flex-1 py-2 rounded-lg border ${toggleActive}`}>Dilute</button>
-                </div>
-                <input type="hidden" name="dam_D" value="dd" />
+                <label class={labelClass} for={`${formId}-dam_D`}>Dilute</label>
+                <select id={`${formId}-dam_D`} name="dam_D" class={selectClass}>
+                  <option value="dd" selected>Dilute dd</option>
+                  <option value="Dd">Dense, carries dilute (Dd)</option>
+                  <option value="DD">Dense DD</option>
+                </select>
               </div>
             </div>
           </div>
         </div>
 
-        <div class:list={[isHome ? 'pt-lg flex justify-center' : '']}>
-          <button
-            type="submit"
-            class:list={[
-              isHome
-                ? 'bg-primary text-white px-12 py-4 rounded-xl text-headline-md font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-3'
-                : 'w-full mt-md bg-primary text-white font-headline-md text-headline-md py-md rounded-lg shadow-md hover:bg-primary-container transition-all',
-            ]}
-          >
-            {isHome && <span class="material-symbols-outlined">calculate</span>}
-            {isHome ? 'Generate Probabilities' : 'Predict Kitten Colors'}
+        <div class:list={[isHome ? 'pt-md flex flex-wrap gap-3 justify-center' : 'flex flex-col gap-2']}>
+          <button type="submit" class="btn-primary">
+            Calculate kitten colors
+          </button>
+          <button type="button" class="btn-secondary copy-results-btn" data-results={resultsId}>
+            Copy results
           </button>
         </div>
       </form>
@@ -139,32 +126,18 @@ const toggleIdle = 'border-outline-variant hover:bg-surface-container-high';
     <div class:list={[isHome ? 'lg:col-span-4 space-y-md' : '']}>
       <div class:list={[
         isHome
-          ? 'bg-secondary-container rounded-xl p-lg border border-outline-variant shadow-sm h-full'
-          : 'bg-surface-container-high rounded-xl border border-outline-variant p-lg space-y-md h-full',
+          ? 'bg-secondary-container rounded-2xl p-lg border border-outline-variant/40 card-shadow h-full'
+          : 'bg-surface-container-high rounded-2xl border border-outline-variant/40 p-lg space-y-md h-full',
       ]}>
-        <h3 class:list={[
-          isHome
-            ? 'text-headline-md font-headline-md text-on-secondary-container mb-md flex items-center gap-2'
-            : 'text-headline-md font-headline-md text-primary',
-        ]}>
-          {isHome && <span class="material-symbols-outlined">analytics</span>}
-          {isHome ? 'Kitten Probabilities' : 'Potential Outcomes'}
+        <h3 class="text-headline-md font-headline-md text-on-secondary-container mb-sm">
+          Kitten outcomes
         </h3>
-        <div id={resultsId} class="space-y-lg" aria-live="polite">
-          {defaultResults.map((r) => (
-            <div class="space-y-sm result-row">
-              <div class:list={['flex justify-between text-label-md font-bold', isHome ? 'text-on-secondary-container' : '']}>
-                <span>{r.label}</span>
-                <span>{r.pct}%</span>
-              </div>
-              <div class:list={['w-full rounded-full overflow-hidden', isHome ? 'bg-white/40 h-3' : 'h-2 bg-surface-container-lowest']}>
-                <div class:list={['meter-fill bg-primary rounded-full', isHome ? 'h-3' : 'h-full']} style={`width: ${r.pct}%`}></div>
-              </div>
-            </div>
-          ))}
+        <p class="text-sm text-on-surface-variant mb-md parent-summary" id={`${resultsId}-summary`}></p>
+        <div id={resultsId} class="space-y-md" aria-live="polite">
+          <p class="text-sm text-on-surface-variant">Loading…</p>
         </div>
-        <div class:list={[isHome ? 'mt-xl pt-lg border-t border-on-secondary-container/10' : 'pt-md border-t border-outline-variant/30']}>
-          <p class="text-sm italic text-on-surface-variant">{note}</p>
+        <div class="mt-lg pt-md border-t border-on-secondary-container/15">
+          <p class="text-sm text-on-surface-variant leading-relaxed">{note}</p>
         </div>
       </div>
     </div>
@@ -172,100 +145,110 @@ const toggleIdle = 'border-outline-variant hover:bg-surface-container-high';
 </div>
 
 <script>
-  import { calculateKittenColors, type ParentGenes, type Outcome } from '../scripts/genetics';
-
-  const ACTIVE = ['border-primary', 'bg-primary-fixed', 'text-primary', 'font-bold'];
-  const IDLE = ['border-outline-variant'];
-
-  function setToggleActive(btn: Element, group: Element) {
-    group.querySelectorAll('.toggle-btn').forEach((b) => {
-      b.classList.remove(...ACTIVE);
-      b.classList.add(...IDLE);
-    });
-    btn.classList.add(...ACTIVE);
-    btn.classList.remove(...IDLE);
-  }
+  import {
+    calculateKittenColors,
+    colorSwatch,
+    type ParentGenes,
+    type Outcome,
+    type BKey,
+    type AKey,
+    type DKey,
+    type OKey,
+  } from '../scripts/genetics';
 
   function readParent(form: HTMLFormElement, prefix: 'sire' | 'dam'): ParentGenes {
     const get = (n: string) =>
-      (form.querySelector(`[name="${prefix}_${n}"]`) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
-    return { B: get('B'), A: get('A'), O: get('O'), D: get('D') };
+      (form.querySelector(`[name="${prefix}_${n}"]`) as HTMLSelectElement | null)?.value ?? '';
+    return {
+      B: get('B') as BKey,
+      A: get('A') as AKey,
+      O: get('O') as OKey,
+      D: get('D') as DKey,
+    };
   }
 
-  function renderResults(el: HTMLElement, results: Outcome[], isHome: boolean) {
+  function fmtPct(p: number): string {
+    const x = p * 100;
+    if (x >= 10) return `${Math.round(x * 10) / 10}%`;
+    if (x >= 1) return `${Math.round(x * 10) / 10}%`;
+    return `${Math.round(x * 100) / 100}%`;
+  }
+
+  function renderResults(el: HTMLElement, summaryEl: HTMLElement | null, results: Outcome[], sire: ParentGenes, dam: ParentGenes) {
+    if (summaryEl) {
+      summaryEl.textContent = `Sire ${sire.B} ${sire.A} ${sire.O} ${sire.D}  ·  Dam ${dam.B} ${dam.A} ${dam.O} ${dam.D}`;
+    }
     if (!results.length) {
-      el.innerHTML = '<p class="text-label-md text-on-surface-variant">No viable outcomes — check parent genetics.</p>';
+      el.innerHTML = '<p class="text-sm text-on-surface-variant">No outcomes — check genotypes.</p>';
       return;
     }
     const total = results.reduce((s, r) => s + r.probability, 0) || 1;
-    const top = results.slice(0, 8);
-    el.innerHTML = top
-      .map((r) => {
-        const pct = Math.round((r.probability / total) * 1000) / 10;
-        const sex = r.sex === 'M' ? 'M' : r.sex === 'F' ? 'F' : '';
-        const label = sex ? `${r.color} (${sex})` : r.color;
-        const track = isHome ? 'bg-white/40 h-3' : 'h-2 bg-surface-container-lowest';
-        const bar = isHome ? 'h-3' : 'h-full';
-        const text = isHome ? 'text-on-secondary-container' : '';
-        return `<div class="space-y-sm">
-          <div class="flex justify-between text-label-md font-bold ${text}">
-            <span>${label}</span><span>${pct}%</span>
+    el.innerHTML = results
+      .map((r, i) => {
+        const pct = r.probability / total;
+        const width = Math.min(pct * 100, 100);
+        const sex = r.sex === 'M' ? '♂' : '♀';
+        const swatch = colorSwatch(r.color);
+        const top = i < 3 ? 'font-bold' : 'font-medium';
+        return `<div class="space-y-1">
+          <div class="flex justify-between gap-2 text-sm ${top} text-on-surface tabular-nums">
+            <span class="flex items-center gap-2 min-w-0">
+              <span class="inline-block w-3 h-3 rounded-full shrink-0 border border-black/10" style="background:${swatch}"></span>
+              <span class="truncate">${r.color} <span class="text-on-surface-variant font-normal">${sex}</span></span>
+            </span>
+            <span class="shrink-0">${fmtPct(pct)}</span>
           </div>
-          <div class="w-full rounded-full overflow-hidden ${track}">
-            <div class="meter-fill bg-primary rounded-full ${bar}" style="width:${Math.min(pct, 100)}%"></div>
+          <div class="w-full h-2.5 rounded-full overflow-hidden bg-parchment border border-outline-variant/50">
+            <div class="h-full rounded-full meter-fill" style="width:${width}%;background:${swatch}"></div>
           </div>
+          <p class="text-xs text-on-surface-variant/80 font-mono truncate">${r.genotype}</p>
         </div>`;
       })
       .join('');
+    el.dataset.copyText = results
+      .map((r) => `${r.color} (${r.sex}) ${fmtPct(r.probability / total)} — ${r.genotype}`)
+      .join('\n');
   }
 
   function initRoot(root: HTMLElement) {
     const formId = root.dataset.formId!;
     const resultsId = root.dataset.resultsId!;
-    const isHome = root.dataset.variant === 'home';
     const form = document.getElementById(formId) as HTMLFormElement | null;
     const resultsEl = document.getElementById(resultsId);
+    const summaryEl = document.getElementById(`${resultsId}-summary`);
     if (!form || !resultsEl) return;
-
-    root.querySelectorAll('.toggle-group').forEach((group) => {
-      const name = (group as HTMLElement).dataset.name!;
-      const hidden = form.querySelector(`input[name="${name}"]`) as HTMLInputElement | null;
-      group.querySelectorAll('.toggle-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          setToggleActive(btn, group);
-          if (hidden) hidden.value = (btn as HTMLElement).dataset.value || '';
-        });
-      });
-    });
 
     const run = () => {
       const sire = readParent(form, 'sire');
       const dam = readParent(form, 'dam');
-      renderResults(resultsEl, calculateKittenColors(sire, dam), isHome);
+      renderResults(resultsEl, summaryEl, calculateKittenColors(sire, dam), sire, dam);
     };
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       run();
     });
-
-    // Live update on change
     form.addEventListener('change', run);
-    root.querySelectorAll('.toggle-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        // after hidden value update
-        setTimeout(run, 0);
-      });
+
+    root.querySelector('.copy-results-btn')?.addEventListener('click', async () => {
+      const text = resultsEl.dataset.copyText || resultsEl.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        const btn = root.querySelector('.copy-results-btn');
+        if (btn) {
+          const old = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = old; }, 1500);
+        }
+      } catch { /* ignore */ }
     });
 
-    // Initial real calculation from defaults
     run();
   }
 
   function boot() {
     document.querySelectorAll<HTMLElement>('.calc-root').forEach(initRoot);
   }
-
   boot();
   document.addEventListener('astro:page-load', boot);
 </script>

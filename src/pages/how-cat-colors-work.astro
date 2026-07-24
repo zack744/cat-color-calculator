@@ -3,196 +3,143 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = "Feline Genetics Guide - How Cat Colors Work";
-const description = "Learn how cat coat color genetics work: Agouti, Dilute, Orange, and White Spotting genes explained with interactive examples.";
+const title = 'Feline Genetics Guide - How Cat Colors Work';
+const description = 'Plain-language guide to cat coat genes: B, A, O, and D — the same four loci used in our free calculator.';
 ---
 <Layout title={title} description={description}>
   <Header active="guide" />
   <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
-<!-- Layer 1: H1 + Interactive Gene Selector -->
-<section class="mb-xl">
-<div class="text-center mb-xl">
-<h1 class="text-display-lg font-display-lg text-primary mb-md">Feline Genetics Guide</h1>
-<p class="text-body-lg max-w-2xl mx-auto text-on-surface-variant">Explore the complex beauty of cat coat colors through our interactive genetic simulator. Change the alleles to see how genes interact in real-time.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
-<!-- Selector -->
-<div class="lg:col-span-5 space-y-md">
-<div class="tonal-card p-lg rounded-xl">
-<h3 class="text-headline-md font-headline-md text-primary mb-lg">Gene Configuration</h3>
-<!-- Gene Row: Agouti -->
-<div class="mb-lg">
-<label class="text-label-md block mb-base font-bold text-on-surface">Agouti Gene (A)</label>
-<div class="flex gap-sm">
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md active-pill" id="btn-A-A" onclick="setGene('A', 'A')">Tabby (A)</button>
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md inactive-pill" id="btn-A-a" onclick="setGene('A', 'a')">Solid (a)</button>
-</div>
-<p class="text-label-sm mt-xs text-on-surface-variant">Determines if the cat has a pattern or a solid coat.</p>
-</div>
-<!-- Gene Row: Dilute -->
-<div class="mb-lg">
-<label class="text-label-md block mb-base font-bold text-on-surface">Dilution Gene (D)</label>
-<div class="flex gap-sm">
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md active-pill" id="btn-D-D" onclick="setGene('D', 'D')">Full Color (D)</button>
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md inactive-pill" id="btn-D-d" onclick="setGene('D', 'd')">Dilute (d)</button>
-</div>
-<p class="text-label-sm mt-xs text-on-surface-variant">Softens black to blue/grey or red to cream.</p>
-</div>
-<!-- Gene Row: Orange -->
-<div class="mb-lg">
-<label class="text-label-md block mb-base font-bold text-on-surface">Orange Gene (O)</label>
-<div class="flex gap-sm">
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md active-pill" id="btn-O-o" onclick="setGene('O', 'o')">Non-Orange (o)</button>
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md inactive-pill" id="btn-O-O" onclick="setGene('O', 'O')">Orange (O)</button>
-</div>
-<p class="text-label-sm mt-xs text-on-surface-variant">The sex-linked gene responsible for ginger coats.</p>
-</div>
-<!-- Gene Row: White Spotting -->
-<div class="mb-lg">
-<label class="text-label-md block mb-base font-bold text-on-surface">Extension Gene (E)</label>
-<div class="flex gap-sm">
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md active-pill" id="btn-E-E" onclick="setGene('E', 'E')">Standard (E)</button>
-<button class="gene-toggle flex-1 py-md px-sm rounded-lg text-center font-label-md inactive-pill" id="btn-E-e" onclick="setGene('E', 'e')">Amber (e)</button>
-</div>
-<p class="text-label-sm mt-xs text-on-surface-variant">Regulates the production of black pigment.</p>
-</div>
-</div>
-</div>
-<!-- Preview Display -->
-<div class="lg:col-span-7">
-<div class="tonal-card rounded-xl overflow-hidden relative min-h-[500px] flex flex-col items-center justify-center bg-surface-container-low p-lg">
-<div class="w-full aspect-[4/3] rounded-lg overflow-hidden transition-all duration-500 transform hover:scale-[1.02]" id="cat-preview-box">
-<img src="/images/cats/brown-tabby/0.jpg" alt="Brown classic tabby cat with bold facial stripes — default phenotype preview." loading="lazy" class="w-full h-full object-cover" id="cat-image"/>
-</div>
-<div class="mt-lg w-full">
-<div class="flex justify-between items-end mb-sm">
-<h4 class="text-headline-md font-headline-md text-primary" id="phenotype-label">Brown Classic Tabby</h4>
-<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm uppercase tracking-wider font-bold">Phenotype</span>
-</div>
-<p class="text-body-md text-on-surface-variant italic" id="genotype-desc">Genotype: A/A D/D o/o E/E</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Layer 2: SEO Copy & Real World Examples -->
-<section class="grid grid-cols-1 lg:grid-cols-3 gap-xl py-xl border-t border-outline-variant/30">
-<div class="lg:col-span-2 space-y-xl">
-<div>
-<h2 class="text-headline-lg font-headline-lg text-primary mb-lg">The Four Primary Genes</h2>
-<div class="space-y-md text-body-md text-on-surface-variant leading-relaxed">
-<p><strong class="text-on-surface">Agouti (A):</strong> The Agouti gene controls the distribution of black pigment. The dominant allele (A) causes the hair to be banded with color, creating the 'tabby' pattern. The recessive 'non-agouti' (a) results in a solid-colored coat. Even solid cats often carry 'ghost markings' that are visible in bright sunlight, especially when kittens.</p>
-<p><strong class="text-on-surface">Extension (E):</strong> This gene acts as a master switch for pigment production. While most cats are 'E' (producing normal black or red pigment), the rare recessive 'e' allele leads to the Amber color seen primarily in Norwegian Forest Cats, where black pigment is gradually replaced by yellow-gold over time.</p>
-<p><strong class="text-on-surface">Orange (O):</strong> Located on the X chromosome, the Orange gene is unique. It overrides the Agouti gene's ability to create solid coats, which is why almost all orange cats are tabbies. Because it's sex-linked, males (XY) need only one 'O' to be orange, while females (XX) need two, making ginger females less common.</p>
-<p><strong class="text-on-surface">Dilution (D):</strong> The D gene affects the density of pigment granules in the hair shaft. The dominant 'D' provides full intensity (Black, Red), while the recessive 'd' clumps the pigment, resulting in Dilute colors like Blue (grey), Cream, or Lilac.</p>
-</div>
-</div>
-<div>
-<h2 class="text-headline-lg font-headline-lg text-primary mb-lg">Complex Combinations</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-<div class="tonal-card p-lg rounded-xl flex gap-md items-start">
-<span class="material-symbols-outlined text-primary text-3xl">hub</span>
-<div>
-<h4 class="font-bold text-on-surface mb-xs">Epistasis</h4>
-<p class="text-label-md text-on-surface-variant">When one gene masks or interferes with the expression of another. For instance, the White (W) gene masks every other color gene completely.</p>
-</div>
-</div>
-<div class="tonal-card p-lg rounded-xl flex gap-md items-start">
-<span class="material-symbols-outlined text-primary text-3xl">science</span>
-<div>
-<h4 class="font-bold text-on-surface mb-xs">Polygenes</h4>
-<p class="text-label-md text-on-surface-variant">While major genes set the base, tiny polygenes determine the 'rufous' or warmth of a red coat, or the crispness of white markings.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Side Examples -->
-<div class="space-y-lg">
-<div class="bg-surface-container-high rounded-xl p-lg sticky top-32">
-<h3 class="text-headline-md font-headline-md text-primary mb-lg">Case Studies</h3>
-<div class="space-y-md">
-<div class="bg-surface p-md rounded-lg border border-outline-variant/30">
-<div class="w-full h-32 rounded-md mb-md overflow-hidden bg-surface-dim">
-<img src="/images/cats/cream/0.jpg" alt="Pale cream pointed cat with blue eyes and subtle tabby markings on the face — colorpoint example." loading="lazy" class="w-full h-full object-cover"/>
-</div>
-<h5 class="font-bold text-on-surface">The Himalayan Factor</h5>
-<p class="text-label-sm text-on-surface-variant">Temperature-sensitive albinism that causes darker points on ears, tail, and paws.</p>
-</div>
-<div class="bg-surface p-md rounded-lg border border-outline-variant/30">
-<div class="w-full h-32 rounded-md mb-md overflow-hidden bg-surface-dim">
-<img src="/images/cats/tortoiseshell/0.jpg" alt="Tortoiseshell and white cat showing black, orange, and white mosaic patches." loading="lazy" class="w-full h-full object-cover"/>
-</div>
-<h5 class="font-bold text-on-surface">Mosaicism (Calico / Tortie)</h5>
-<p class="text-label-sm text-on-surface-variant">The result of X-inactivation where both Orange and Non-Orange alleles are expressed in different patches.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Layer 3: Clickable Presets -->
-<section class="py-xl">
-<h2 class="text-headline-lg font-headline-lg text-primary text-center mb-xl">Try These Combinations</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
-<!-- Preset 1 -->
-<button class="tonal-card p-lg rounded-xl text-left group hover:bg-primary/5 transition-all" onclick="applyPreset('blue-solid')">
-<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">blur_on</span>
-</div>
-<h4 class="font-bold text-on-surface text-lg mb-xs">The Dilute Effect</h4>
-<p class="text-label-md text-on-surface-variant">See how the 'd' allele transforms a black cat into a soft Blue (Grey) coat.</p>
-</button>
-<!-- Preset 2 -->
-<button class="tonal-card p-lg rounded-xl text-left group hover:bg-primary/5 transition-all" onclick="applyPreset('orange-tabby')">
-<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">sunny</span>
-</div>
-<h4 class="font-bold text-on-surface text-lg mb-xs">Ginger Power</h4>
-<p class="text-label-md text-on-surface-variant">Observe how the dominant 'O' gene forces a tabby pattern regardless of Agouti.</p>
-</button>
-<!-- Preset 3 -->
-<button class="tonal-card p-lg rounded-xl text-left group hover:bg-primary/5 transition-all" onclick="applyPreset('amber-norwegian')">
-<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">history_toggle_off</span>
-</div>
-<h4 class="font-bold text-on-surface text-lg mb-xs">Amber Transition</h4>
-<p class="text-label-md text-on-surface-variant">A rare recessive trait that slowly lightens black to a golden cinnamon tone.</p>
-</button>
-<!-- Preset 4 -->
-<button class="tonal-card p-lg rounded-xl text-left group hover:bg-primary/5 transition-all" onclick="applyPreset('solid-black')">
-<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">dark_mode</span>
-</div>
-<h4 class="font-bold text-on-surface text-lg mb-xs">Void Master</h4>
-<p class="text-label-md text-on-surface-variant">The classic combination of solid black pigment with full saturation.</p>
-</button>
-</div>
-</section>
+    <header class="text-center max-w-2xl mx-auto space-y-md">
+      <h1 class="text-display-lg font-display-lg text-primary">How cat colors work</h1>
+      <p class="text-body-lg text-on-surface-variant">
+        A short tour of the four genes this site actually calculates. Flip the switches to preview a simplified phenotype image.
+      </p>
+    </header>
+
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start" id="gene-demo">
+      <div class="lg:col-span-5 space-y-md">
+        <div class="p-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/40 card-shadow space-y-lg">
+          <h2 class="text-headline-md font-headline-md text-primary">Preview controls</h2>
+
+          <div>
+            <p class="text-label-md font-bold mb-sm">Agouti (A)</p>
+            <div class="flex gap-sm" data-gene="A">
+              <button type="button" data-val="A" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-on">Tabby (A-)</button>
+              <button type="button" data-val="a" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-off">Solid (aa)</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-label-md font-bold mb-sm">Dilute (D)</p>
+            <div class="flex gap-sm" data-gene="D">
+              <button type="button" data-val="D" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-on">Dense (D-)</button>
+              <button type="button" data-val="d" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-off">Dilute (dd)</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-label-md font-bold mb-sm">Orange (O) — simplified as full orange vs not</p>
+            <div class="flex gap-sm" data-gene="O">
+              <button type="button" data-val="o" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-on">Not orange</button>
+              <button type="button" data-val="O" class="gene-btn flex-1 py-2 rounded-full text-sm font-semibold border-2 gene-off">Orange</button>
+            </div>
+          </div>
+          <p class="text-sm text-on-surface-variant">This demo is illustrative only (black series fixed as black). Use the <a class="text-primary font-bold underline" href="/">calculator</a> for litter probabilities with carriers.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl overflow-hidden border border-outline-variant/40 card-shadow bg-surface-container-low p-lg">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-surface-dim">
+            <img id="cat-image" src="/images/cats/brown-tabby/0.jpg" alt="Example coat color" class="w-full h-full object-cover" width="800" height="600" />
+          </div>
+          <div class="mt-md flex justify-between items-end gap-md">
+            <div>
+              <h3 class="text-headline-md font-headline-md text-primary" id="phenotype-label">Brown Tabby</h3>
+              <p class="text-sm text-on-surface-variant font-mono" id="genotype-desc">A- D- non-orange · black series</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-3xl space-y-lg border-t border-outline-variant/30 pt-xl">
+      <h2 class="text-headline-lg font-headline-lg text-primary">The four primary genes</h2>
+      <div class="space-y-md text-body-md text-on-surface-variant leading-relaxed">
+        <p><strong class="text-on-surface">B series:</strong> Controls black-type pigment. B (black) dominates b (chocolate) and bl (cinnamon).</p>
+        <p><strong class="text-on-surface">Agouti (A):</strong> A- allows tabby banding; aa is solid. Ghost striping on solids is common in kittens.</p>
+        <p><strong class="text-on-surface">Orange (O):</strong> On the X chromosome. Males need one O to be red; females with Oo are tortoiseshell. Red usually looks tabby.</p>
+        <p><strong class="text-on-surface">Dilute (d):</strong> Recessive. Black→blue, chocolate→lilac, cinnamon→fawn, red→cream. Both parents must pass d for a dilute kitten.</p>
+      </div>
+      <p class="text-body-md text-on-surface-variant">
+        Not covered here: white spotting (calico/bicolor), silver/smoke (I), colorpoint (cs/cb), amber (e), or tabby pattern subtype. Those need extra loci or DNA tests.
+      </p>
+      <a href="/" class="btn-primary inline-flex">Open the calculator</a>
+    </section>
   </main>
   <Footer />
-  <style is:global>
-.material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .tonal-card {
-            background-color: #ffffff;
-            box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05);
-            border: 1px solid #e0d8c8;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .tonal-card:hover {
-            box-shadow: 0px 8px 30px rgba(42, 42, 42, 0.08);
-            transform: translateY(-2px);
-        }
-        .active-pill {
-            background-color: #d97706;
-            color: #ffffff;
-        }
-        .inactive-pill {
-            background-color: #fef3c7;
-            color: #8d4b00;
-        }
-  </style>
 </Layout>
+
+<style>
+  .gene-on {
+    background: #8d4b00;
+    color: #fff;
+    border-color: #6e3900;
+  }
+  .gene-off {
+    background: #f7f3df;
+    color: #725d42;
+    border-color: #c4b89e;
+  }
+</style>
+
+<script>
+  type State = { A: 'A' | 'a'; D: 'D' | 'd'; O: 'O' | 'o' };
+  const state: State = { A: 'A', D: 'D', O: 'o' };
+
+  const PRESETS: Record<string, { img: string; label: string; desc: string }> = {
+    'A-D-o': { img: '/images/cats/brown-tabby/0.jpg', label: 'Brown Tabby', desc: 'A- D- non-orange · black series' },
+    'A-d-o': { img: '/images/cats/blue/0.jpg', label: 'Blue Tabby', desc: 'A- dd non-orange · dilute black' },
+    'a-D-o': { img: '/images/cats/black/0.jpg', label: 'Solid Black', desc: 'aa D- non-orange · black series' },
+    'a-d-o': { img: '/images/cats/blue/0.jpg', label: 'Solid Blue', desc: 'aa dd non-orange · dilute' },
+    'A-D-O': { img: '/images/cats/red-tabby/0.jpg', label: 'Red Tabby', desc: 'Orange (simplified full orange)' },
+    'A-d-O': { img: '/images/cats/cream/0.jpg', label: 'Cream Tabby', desc: 'Orange + dilute' },
+    'a-D-O': { img: '/images/cats/red-tabby/0.jpg', label: 'Red (looks tabby)', desc: 'Orange often shows tabby even if aa' },
+    'a-d-O': { img: '/images/cats/cream/0.jpg', label: 'Cream', desc: 'Orange + dilute' },
+  };
+
+  function key() {
+    return `${state.A}-${state.D}-${state.O}`;
+  }
+
+  function apply() {
+    const p = PRESETS[key()] || PRESETS['A-D-o'];
+    const img = document.getElementById('cat-image') as HTMLImageElement | null;
+    const label = document.getElementById('phenotype-label');
+    const desc = document.getElementById('genotype-desc');
+    if (img) { img.src = p.img; img.alt = p.label; }
+    if (label) label.textContent = p.label;
+    if (desc) desc.textContent = p.desc;
+
+    document.querySelectorAll('[data-gene]').forEach((group) => {
+      const g = (group as HTMLElement).dataset.gene as keyof State;
+      group.querySelectorAll('.gene-btn').forEach((btn) => {
+        const on = (btn as HTMLElement).dataset.val === state[g];
+        btn.classList.toggle('gene-on', on);
+        btn.classList.toggle('gene-off', !on);
+      });
+    });
+  }
+
+  function boot() {
+    document.querySelectorAll('[data-gene] .gene-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('[data-gene]') as HTMLElement;
+        const g = group.dataset.gene as keyof State;
+        state[g] = (btn as HTMLElement).dataset.val as any;
+        apply();
+      });
+    });
+    apply();
+  }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+</script>

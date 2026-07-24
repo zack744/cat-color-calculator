@@ -24,24 +24,15 @@ const description = "British Shorthair color calculator. Predict Blue, Lilac, an
                     British Shorthair <span class="text-primary">Color Calculator</span>
 </h1>
 <p class="text-body-lg text-on-surface-variant max-w-lg">
-                    Predict the genetic outcomes for your next litter with precision. Our British Shorthair specific tool accounts for the dominant dilute and solid genes unique to the breed's heritage.
+                    Same free calculator as the home page. Dilute (dd) is recessive — two dense parents can still produce blue or lilac if both carry d.
                 </p>
-<div class="flex flex-wrap gap-sm pt-4">
-<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">Dilute Specialist</span>
-<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">V2.0 Core</span>
-<span class="px-md py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm">Genetic Accuracy</span>
-</div>
 </div>
 <!-- Calculator Component -->
 <div class="lg:col-span-7">
   <CatColorCalculator
     variant="breed"
     breed="british-shorthair"
-    defaultResults={[
-      { label: "Blue (Solid)", pct: 50 },
-      { label: "Lilac (Solid)", pct: 25 },
-      { label: "Black (Solid)", pct: 25 },
-    ]}
+    
     note="Note: British Shorthair dilute genetics simplified with the 4-gene model (B, A, O, D)."
   />
 </div>

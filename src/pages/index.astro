@@ -5,146 +5,121 @@ import Footer from '../components/Footer.astro';
 import CatColorCalculator from '../components/CatColorCalculator.astro';
 
 const title = 'Cat Color Calculator - Predict Kitten Coat Colors | Free Tool';
-const description = 'Free cat color calculator. Predict kitten coat colors and genetics from parent cats. Supports Maine Coon, British Shorthair, Persian, Bengal. Pure client-side, no signup.';
+const description = 'Free Mendelian cat color calculator. Enter parent genotypes (including carriers) to estimate kitten coat colors. Covers B, A, O, and D loci.';
 
 const examples = [
-  { name: 'Solid Black', genotype: 'B/B, aa, D/D, o/y', note: 'Common Outcome', image: '/images/cats/black/0.jpg' },
-  { name: 'Blue (Dilute)', genotype: 'B/B, aa, d/d, o/y', note: 'Dilute Gene Result', image: '/images/cats/blue/0.jpg' },
-  { name: 'Red Tabby', genotype: 'B/-, A/-, D/-, O/y', note: 'Sex-Linked Gene', image: '/images/cats/red-tabby/0.jpg' },
-  { name: 'Tortoiseshell', genotype: 'B/-, aa, D/-, O/o', note: 'Female Exclusive', image: '/images/cats/tortoiseshell/0.jpg' },
+  { name: 'Solid Black', genotype: 'BB aa DD oY', note: 'Dense black solid', image: '/images/cats/black/0.jpg' },
+  { name: 'Blue (Dilute)', genotype: 'BB aa dd oY', note: 'Black + dilute', image: '/images/cats/blue/0.jpg' },
+  { name: 'Red Tabby', genotype: '— A- D- OY', note: 'Orange on X', image: '/images/cats/red-tabby/0.jpg' },
+  { name: 'Tortoiseshell', genotype: '— aa D- Oo', note: 'Females (Oo)', image: '/images/cats/tortoiseshell/0.jpg' },
 ];
 
 const breeds = [
-  { name: 'Maine Coon', href: '/maine-coon-color-calculator/', icon: 'forest', desc: "Specializing in Smokes, Silvers, and classic Tabby patterns common in the King of Cats." },
-  { name: 'British Shorthair', href: '/british-shorthair-color-calculator/', icon: 'castle', desc: 'Focusing on the iconic Solid Blue and Lilac genetics of this noble, round-faced breed.' },
-  { name: 'Persian', href: '/persian-cat-color-calculator/', icon: 'spa', desc: 'Genetic calculator for long-hair dilute shades, colorpoints, and bi-color patterns.' },
-  { name: 'Bengal', href: '/bengal-cat-color-calculator/', icon: 'local_fire_department', desc: 'Unique insights into wild-cross genetics: Marbled, Spotted, and Charcoal variations.' },
+  { name: 'Maine Coon', href: '/maine-coon-color-calculator/', desc: 'Notes on tabby, dilute, and silver/smoke (silver not modeled).' },
+  { name: 'British Shorthair', href: '/british-shorthair-color-calculator/', desc: 'Blue and lilac dilute solid colors explained.' },
+  { name: 'Persian', href: '/persian-cat-color-calculator/', desc: 'Dilute and longhair context; white spotting not modeled.' },
+  { name: 'Bengal', href: '/bengal-cat-color-calculator/', desc: 'Spotted/marble notes; snow & charcoal not modeled.' },
 ];
 ---
 <Layout title={title} description={description}>
   <Header active="calculator" />
 
   <main class="max-w-container-max mx-auto px-lg md:px-xl py-xl space-y-xl">
-    <!-- Section 1: Hero + Calculator -->
-    <header class="text-center space-y-md">
+    <header class="text-center space-y-md max-w-2xl mx-auto">
       <h1 class="text-display-lg font-display-lg text-on-surface leading-tight">Cat Color Calculator</h1>
-      <p class="text-headline-md text-on-surface-variant">Predict Kitten Coat Colors</p>
-      <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">
-        Discover the genetic possibilities of your next litter with our high-precision feline genetics engine.
-        Simple, fast, and professional.
+      <p class="text-body-lg text-on-surface-variant">
+        Estimate kitten coat colors from parent genotypes. Four loci only: black series (B), agouti (A), dilute (D), and orange (O). Free, runs in your browser.
       </p>
+      <ol class="flex flex-wrap justify-center gap-3 text-sm text-on-surface-variant pt-sm">
+        <li class="px-3 py-1 rounded-full bg-parchment border border-outline-variant">1. Set sire</li>
+        <li class="px-3 py-1 rounded-full bg-parchment border border-outline-variant">2. Set dam</li>
+        <li class="px-3 py-1 rounded-full bg-parchment border border-outline-variant">3. Read outcomes</li>
+      </ol>
     </header>
 
     <section>
       <CatColorCalculator variant="home" />
     </section>
 
-    <!-- Section 2: Deep Dive Genetics -->
     <section class="py-xl">
       <div class="max-w-4xl mx-auto space-y-xl">
         <div class="text-center">
-          <h2 class="text-headline-lg font-headline-lg mb-md">How Cat Color Genetics Work</h2>
-          <p class="text-on-surface-variant">The science behind the beauty of every feline coat.</p>
+          <h2 class="text-headline-lg font-headline-lg mb-md">The four genes we model</h2>
+          <p class="text-on-surface-variant">Same loci as the calculator inputs. Carriers (heterozygotes) are included.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-          <div class="glass-card p-lg rounded-xl">
-            <h3 class="text-headline-md font-headline-md text-primary mb-md">The Extension Gene (B)</h3>
-            <p class="text-body-md text-on-surface-variant">The base color of almost all cats is black. The B gene controls the shape of eumelanin granules. Dominant 'B' results in solid black, while recessive 'b' creates chocolate and 'bl' creates cinnamon. Understanding this hierarchy is the foundation of any color prediction.</p>
+          <div class="p-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/40 card-shadow">
+            <h3 class="text-headline-md font-headline-md text-primary mb-md">B — Black series</h3>
+            <p class="text-body-md text-on-surface-variant">Allele order B &gt; b &gt; bl. Black, chocolate, or cinnamon pigment; dilute turns them blue, lilac, or fawn.</p>
           </div>
-          <div class="glass-card p-lg rounded-xl">
-            <h3 class="text-headline-md font-headline-md text-primary mb-md">The Agouti Gene (A)</h3>
-            <p class="text-body-md text-on-surface-variant">Agouti determines if a cat has a "wild" tabby pattern or a solid color. The dominant 'A' gene allows for the development of stripes, spots, or whorls, while 'aa' (non-agouti) suppresses the pattern, resulting in a solid coat.</p>
+          <div class="p-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/40 card-shadow">
+            <h3 class="text-headline-md font-headline-md text-primary mb-md">A — Agouti</h3>
+            <p class="text-body-md text-on-surface-variant">A- shows tabby banding; aa is solid (non-agouti). Two tabby carriers (Aa × Aa) can still produce solids.</p>
           </div>
-          <div class="glass-card p-lg rounded-xl">
-            <h3 class="text-headline-md font-headline-md text-primary mb-md">The Orange Gene (O)</h3>
-            <p class="text-body-md text-on-surface-variant">Located on the X-chromosome, the Orange gene is sex-linked. This is why most ginger cats are male and tortoiseshells are almost exclusively female. If a female cat has one 'O' and one 'o' allele, she will be a tortoiseshell.</p>
+          <div class="p-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/40 card-shadow">
+            <h3 class="text-headline-md font-headline-md text-primary mb-md">O — Orange (X-linked)</h3>
+            <p class="text-body-md text-on-surface-variant">Males are O/Y or o/Y. Females OO, Oo (tortie), or oo. Most red cats look tabby even when genetically solid.</p>
           </div>
-          <div class="glass-card p-lg rounded-xl">
-            <h3 class="text-headline-md font-headline-md text-primary mb-md">The Dilution Gene (D)</h3>
-            <p class="text-body-md text-on-surface-variant">Dilution "washes out" the primary colors. Black becomes Blue (Grey), Chocolate becomes Lilac, Cinnamon becomes Fawn, and Orange becomes Cream. This recessive trait (dd) must be inherited from both parents to show.</p>
-          </div>
-        </div>
-
-        <div class="bg-surface-container-high rounded-xl p-xl border border-outline-variant/30 text-center">
-          <h4 class="text-headline-md font-headline-md mb-md">Genetic Case Study: Tortoiseshell Magic</h4>
-          <p class="text-body-lg mb-lg">When you cross a <strong>Black Cat (Sire)</strong> with a <strong>Red/Orange Cat (Dam)</strong>, the resulting female kittens will almost always be <strong>Tortoiseshell</strong>.</p>
-          <div class="flex flex-wrap justify-center gap-md items-center">
-            <div class="px-6 py-3 bg-black text-white rounded-lg font-bold">Black Male</div>
-            <span class="text-2xl font-bold">×</span>
-            <div class="px-6 py-3 bg-orange-500 text-white rounded-lg font-bold">Red Female</div>
-            <span class="text-2xl font-bold">=</span>
-            <div class="px-6 py-3 bg-gradient-to-r from-black to-orange-400 text-white rounded-lg font-bold">100% Tortie Females</div>
+          <div class="p-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/40 card-shadow">
+            <h3 class="text-headline-md font-headline-md text-primary mb-md">D — Dilute</h3>
+            <p class="text-body-md text-on-surface-variant">Recessive dd lightens pigment. Two dense cats that are both Dd can produce about 25% dilute kittens.</p>
           </div>
         </div>
 
-        <div class="prose prose-on-surface max-w-none space-y-md text-on-surface-variant">
-          <p>Feline coat genetics is a complex interplay of dominant and recessive traits. While our calculator covers the primary four genes, hundreds of other factors—like the White Spotting gene, the Siamese-point gene, and polygenetic modifiers—can affect the final phenotype. For example, a "Blue" cat isn't actually blue; it's a black cat with pigment granules that are clumped together, allowing more light to pass through, creating a grey appearance.</p>
-          <p>Breeders often look for "hidden" recessives. A solid black cat might "carry" dilute, meaning they have a 'Dd' genotype. When bred to another carrier, 25% of their offspring will be dilute (Blue/Grey), even though neither parent shows that color. Our tool allows you to simulate these genotypes to find the hidden potential in your breeding pairs.</p>
+        <div class="bg-surface-container rounded-2xl p-xl border border-outline-variant/40">
+          <h3 class="text-headline-md font-headline-md mb-md">Example: black male × red female</h3>
+          <p class="text-body-md text-on-surface-variant mb-lg">
+            With a non-orange black sire (o/Y) and a red dam (O/O or O/-), daughters typically get orange from the dam and non-orange from the sire → <strong class="text-on-surface">tortoiseshell females</strong>. Sons get the dam’s X → often red males. Exact % depends on the full genotypes you enter above.
+          </p>
+          <div class="flex flex-wrap gap-md items-center text-sm font-semibold">
+            <span class="px-4 py-2 bg-on-surface text-white rounded-full">Black sire</span>
+            <span>×</span>
+            <span class="px-4 py-2 bg-primary text-white rounded-full">Red dam</span>
+            <span>→</span>
+            <span class="px-4 py-2 bg-parchment border border-outline-variant rounded-full text-on-surface">Often tortie ♀ + red ♂</span>
+          </div>
         </div>
+
+        <p class="text-body-md text-on-surface-variant leading-relaxed">
+          White spotting (bicolor/calico), silver/smoke, colorpoint, and tabby pattern type (classic vs mackerel vs spotted) are <strong class="text-on-surface">not</strong> in this model. For breeding decisions, confirm with DNA panels and your registry.
+        </p>
       </div>
     </section>
 
-    <!-- Section 3: Example Outcomes -->
     <section class="space-y-lg">
-      <h2 class="text-headline-lg font-headline-lg text-center">Example Kitten Color Outcomes</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md">
+      <h2 class="text-headline-lg font-headline-lg text-center">Common phenotypes</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-md">
         {examples.map((ex) => (
-          <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-md transition-shadow group">
-            <div class="h-40 bg-surface-container overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={ex.image} alt={ex.name} loading="lazy" />
+          <div class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden card-shadow">
+            <div class="h-36 bg-surface-container overflow-hidden">
+              <img class="w-full h-full object-cover" src={ex.image} alt={ex.name} loading="lazy" width="400" height="300" />
             </div>
-            <div class="p-md space-y-2">
-              <h4 class="font-bold text-on-surface">{ex.name}</h4>
-              <p class="text-label-sm text-on-surface-variant">Genotype: {ex.genotype}</p>
-              <div class="flex items-center gap-1 text-primary">
-                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-                <span class="text-xs font-bold">{ex.note}</span>
-              </div>
+            <div class="p-md space-y-1">
+              <h3 class="font-bold text-on-surface">{ex.name}</h3>
+              <p class="text-xs font-mono text-on-surface-variant">{ex.genotype}</p>
+              <p class="text-sm text-on-surface-variant">{ex.note}</p>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Section 4: By Breed -->
     <section class="space-y-lg py-xl border-t border-outline-variant/30">
-      <h2 class="text-headline-lg font-headline-lg text-center">Breed-Specific Genetics</h2>
+      <h2 class="text-headline-lg font-headline-lg text-center">Breed pages</h2>
+      <p class="text-center text-on-surface-variant max-w-xl mx-auto text-body-md">
+        Same calculator on every breed page — with notes about colors people ask about for that breed.
+      </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
         {breeds.map((b) => (
-          <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/20 flex flex-col items-center text-center space-y-md">
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-              <span class="material-symbols-outlined text-3xl">{b.icon}</span>
-            </div>
-            <h3 class="text-headline-md font-headline-md">{b.name}</h3>
-            <p class="text-body-md text-on-surface-variant">{b.desc}</p>
-            <a class="text-primary font-bold hover:underline flex items-center gap-1" href={b.href}>
-              Explore Breed <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
-          </div>
+          <a href={b.href} class="block bg-surface-container-low p-lg rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-colors space-y-sm">
+            <h3 class="text-headline-md font-headline-md text-on-surface">{b.name}</h3>
+            <p class="text-sm text-on-surface-variant">{b.desc}</p>
+            <span class="text-primary text-sm font-bold">Open →</span>
+          </a>
         ))}
       </div>
     </section>
   </main>
 
   <Footer />
-
-  <div class="sr-only" aria-hidden="true">
-    <h2>Cat Color Genetics Calculator</h2>
-    <p>
-      Free online cat color calculator for predicting kitten coat colors from parent genetics.
-      Calculate coat color probabilities for Maine Coon, British Shorthair, Persian, and Bengal breeds.
-      Our feline genetics tool covers the four primary genes: Black (B), Agouti (A), Orange (O), and Dilution (D).
-      Predict tortoiseshell, tabby, calico, solid black, blue, red, cream, smoke, silver, and colorpoint kittens.
-    </p>
-  </div>
-
-  <style is:global>
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(224, 216, 200, 0.5);
-    }
-    .card-shadow { box-shadow: 0px 4px 20px rgba(42, 42, 42, 0.05); }
-    .meter-fill { transition: width 1s ease-out; }
-  </style>
 </Layout>

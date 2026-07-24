@@ -4,31 +4,25 @@ interface Props {
 }
 const { active = 'calculator' } = Astro.props;
 
-const link = (key: string, href: string, label: string) => {
-  const isActive = active === key;
-  return { href, label, isActive };
-};
-
 const links = [
-  link('calculator', '/', 'Calculator'),
-  link('breeds', '/maine-coon-color-calculator/', 'Breeds'),
-  link('chart', '/cat-color-chart/', 'Color Chart'),
-  link('guide', '/how-cat-colors-work/', 'Guide'),
+  { key: 'calculator', href: '/', label: 'Calculator' },
+  { key: 'breeds', href: '/maine-coon-color-calculator/', label: 'Breeds' },
+  { key: 'chart', href: '/cat-color-chart/', label: 'Color Chart' },
+  { key: 'guide', href: '/how-cat-colors-work/', label: 'Guide' },
 ];
 ---
-<nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm">
+<nav class="bg-parchment/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/40">
   <div class="flex justify-between items-center w-full px-lg md:px-xl max-w-container-max mx-auto py-md">
-    <a href="/" class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-2">
-      <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+    <a href="/" class="text-lg font-bold text-primary tracking-tight">
       Cat Color Calculator
     </a>
     <div class="hidden md:flex items-center gap-lg">
       {links.map((l) => (
         <a
           class:list={[
-            'text-label-md font-label-md transition-colors',
-            l.isActive
-              ? 'text-primary font-bold border-b-2 border-primary pb-1'
+            'text-label-md transition-colors',
+            active === l.key
+              ? 'text-primary font-bold border-b-2 border-primary pb-0.5'
               : 'text-on-surface-variant hover:text-primary',
           ]}
           href={l.href}
@@ -37,5 +31,43 @@ const links = [
         </a>
       ))}
     </div>
+    <button
+      type="button"
+      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-outline-variant text-on-surface"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      id="nav-toggle"
+    >
+      <span class="sr-only">Menu</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M3 5h14v1.5H3V5zm0 4.25h14v1.5H3v-1.5zM3 13.5h14V15H3v-1.5z"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/40 bg-parchment px-lg pb-md">
+    {links.map((l) => (
+      <a
+        class:list={[
+          'block py-3 text-label-md border-b border-outline-variant/30',
+          active === l.key ? 'text-primary font-bold' : 'text-on-surface-variant',
+        ]}
+        href={l.href}
+      >
+        {l.label}
+      </a>
+    ))}
   </div>
 </nav>
+<script>
+  function setupNav() {
+    const btn = document.getElementById('nav-toggle');
+    const panel = document.getElementById('mobile-nav');
+    if (!btn || !panel) return;
+    btn.onclick = () => {
+      const open = panel.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+  }
+  setupNav();
+  document.addEventListener('astro:page-load', setupNav);
+</script>

@@ -27,41 +27,15 @@ const description = "Bengal cat color calculator. Predict Bengal kitten colors: 
 <span class="text-on-surface font-headline-md block mt-2">Predict Kitten Colors &amp; Patterns</span>
 </h1>
 <p class="text-body-lg text-on-surface-variant mb-xl max-w-lg">
-                            Utilize our advanced genetic algorithms specific to the Bengal breed to predict possible litter outcomes based on parental genotypes, including Snow variants and Silver modifiers.
+                            Free Mendelian estimator for base color, tabby/solid, dilute, and orange. Snow (colorpoint), silver, and charcoal are discussed below but not calculated.
                         </p>
-<div class="flex items-center gap-lg">
-<div class="flex -space-x-3">
-<div class="w-10 h-10 rounded-full border-2 border-white bg-secondary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-secondary-container text-sm">science</span>
 </div>
-<div class="w-10 h-10 rounded-full border-2 border-white bg-primary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-fixed text-sm">auto_awesome</span>
-</div>
-<div class="w-10 h-10 rounded-full border-2 border-white bg-tertiary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-on-tertiary-fixed text-sm">genetics</span>
-</div>
-</div>
-<span class="text-label-md font-label-md text-on-surface-variant">V2.0 Core Engine</span>
-</div>
-</div>
-<!-- Calculator Tool Card -->
-<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(42,42,42,0.05)] border border-outline-variant p-lg md:p-xl">
-  <div class="flex items-center justify-between mb-lg">
-    <h3 class="text-headline-md font-headline-md text-on-surface">Breeding Pair</h3>
-    <div class="px-sm py-1 bg-primary-fixed text-on-primary-fixed text-label-sm rounded-full">Breed-Specific: Bengal</div>
-  </div>
+<div class="bg-surface-container-lowest rounded-2xl card-shadow border border-outline-variant/40 p-lg md:p-xl">
   <CatColorCalculator
     variant="breed"
     breed="bengal"
-    defaultResults={[
-      { label: "Brown Tabby (M)", pct: 25 },
-      { label: "Brown Tabby (F)", pct: 25 },
-      { label: "Black (M)", pct: 12.5 },
-      { label: "Black (F)", pct: 12.5 },
-    ]}
-    note="Note: Bengal snow/charcoal/glitter modifiers are informational; core coat color uses the 4-gene model."
+    note="Shared B/A/O/D model. Snow (cs/cb), silver (I), and charcoal are not calculated."
   />
-</div>
 </div>
 </div>
 </section>
@@ -243,10 +217,9 @@ const description = "Bengal cat color calculator. Predict Bengal kitten colors: 
 </div>
 <!-- View More Button -->
 <div class="mt-xl text-center">
-<button class="text-primary font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
-                        See All 48 Breeding Combinations
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</button>
+<a href="/" class="text-primary font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
+                        Open main calculator
+</a>
 </div>
 </div>
 </section>
@@ -259,37 +232,10 @@ const description = "Bengal cat color calculator. Predict Bengal kitten colors: 
 <p class="text-on-surface-variant">Switch breed genetics for more precise results.</p>
 </div>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-md">
-<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
-<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">pets</span>
-</div>
-<span class="text-label-md font-bold">Ragdoll</span>
-</a>
-<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/maine-coon-color-calculator/">
-<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">pets</span>
-</div>
-<span class="text-label-md font-bold">Maine Coon</span>
-</a>
-<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
-<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">pets</span>
-</div>
-<span class="text-label-md font-bold">Siamese</span>
-</a>
-<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/">
-<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">pets</span>
-</div>
-<span class="text-label-md font-bold">Abyssinian</span>
-</a>
-<a class="group p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors"  href="/persian-cat-color-calculator/">
-<div class="w-12 h-12 bg-surface-container rounded-full mx-auto mb-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">pets</span>
-</div>
-<span class="text-label-md font-bold">Persian</span>
-</a>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-md">
+<a class="p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors font-bold" href="/maine-coon-color-calculator/">Maine Coon</a>
+<a class="p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors font-bold" href="/british-shorthair-color-calculator/">British Shorthair</a>
+<a class="p-md bg-white border border-outline-variant rounded-xl text-center hover:border-primary transition-colors font-bold" href="/persian-cat-color-calculator/">Persian</a>
 </div>
 </div>
 </section>

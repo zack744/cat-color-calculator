@@ -14,36 +14,17 @@ const description = "Persian cat color calculator. Predict Persian kitten coat c
 <section class="mb-xl">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
 <div class="lg:col-span-5 flex flex-col gap-md">
-<span class="text-primary font-label-md tracking-wider flex items-center gap-2 uppercase">
-<span class="material-symbols-outlined text-[18px]">verified</span> v2.0 Calculator
-                    </span>
-<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Persian Cat Color Calculator - Predict Kitten Colors</h1>
+<p class="text-sm font-semibold text-primary uppercase tracking-wide">4-gene model</p>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Persian Cat Color Calculator</h1>
 <p class="text-body-lg text-on-surface-variant leading-relaxed">
-                        Design the future of your cattery with precision. Our Persian-specific genetics engine accounts for longhair modifiers, bicolor spotting, and the complex dilute factors unique to the Persian breed.
+                        Shared Mendelian calculator (B, A, O, D). White spotting (bicolor/calico), colorpoint, and longhair modifiers are not calculated — notes only.
                     </p>
-<div class="flex flex-wrap gap-sm mt-sm">
-<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Bicolor Ready
-                        </span>
-<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Calico Logic
-                        </span>
-<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> Smoke &amp; Tabby
-                        </span>
-</div>
 </div>
 <div class="lg:col-span-7">
   <CatColorCalculator
     variant="breed"
     breed="persian"
-    defaultResults={[
-      { label: "Tortoiseshell (F)", pct: 25 },
-      { label: "Black (M)", pct: 25 },
-      { label: "Red (M)", pct: 25 },
-      { label: "Black Tortie (F)", pct: 25 },
-    ]}
-    note="Note: Persian white spotting & colorpoint are not fully modeled; core B/A/O/D probabilities shown."
+    note="Shared B/A/O/D model. White spotting & colorpoint not calculated."
   />
 </div>
 </div>
@@ -158,7 +139,7 @@ const description = "Persian cat color calculator. Predict Persian kitten coat c
 <div class="w-10 h-10 rounded-full border-2 border-white bg-blue-300"></div>
 <div class="w-10 h-10 rounded-full border-2 border-white bg-blue-300"></div>
 </div>
-<span class="text-label-sm font-bold text-primary">100% Guaranteed</span>
+<span class="text-label-sm font-bold text-primary">Illustrative</span>
 </div>
 <h4 class="font-bold text-on-surface mb-xs">Blue × Blue Pairing</h4>
 <p class="text-label-sm text-on-surface-variant mb-md">Expected: 100% Blue Kittens</p>
@@ -221,27 +202,10 @@ const description = "Persian cat color calculator. Predict Persian kitten coat c
 <span class="font-bold text-on-surface block">British Shorthair</span>
 <span class="text-label-sm text-on-surface-variant">Blue Genetics</span>
 </div>
-<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
-<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
-<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
-</div>
-<span class="font-bold text-on-surface block">Ragdoll</span>
-<span class="text-label-sm text-on-surface-variant">Point Coloration</span>
-</div>
-<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
-<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
-<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
-</div>
-<span class="font-bold text-on-surface block">Siamese</span>
-<span class="text-label-sm text-on-surface-variant">Temperature Genes</span>
-</div>
-<div class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center group cursor-pointer hover:bg-surface-container-high transition-colors">
-<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mx-auto mb-md flex items-center justify-center">
-<span class="material-symbols-outlined text-[40px] text-on-secondary-fixed">pets</span>
-</div>
-<span class="font-bold text-on-surface block">Sphynx</span>
-<span class="text-label-sm text-on-surface-variant">Skin Pigmentation</span>
-</div>
+<a href="/bengal-cat-color-calculator/" class="flex-shrink-0 w-48 tonal-layer-1 p-md rounded-xl text-center hover:bg-surface-container-high transition-colors">
+<span class="font-bold text-on-surface block">Bengal</span>
+<span class="text-label-sm text-on-surface-variant">Spotted notes</span>
+</a>
 </div>
 </section>
   </main>
