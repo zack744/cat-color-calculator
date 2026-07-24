@@ -1,27 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cat Color Calculator">
-  <!-- Circle badge (inspired by circle cat clipart) -->
   <circle cx="32" cy="32" r="30" fill="#8d4b00"/>
-  <!-- Soft inner ring -->
   <circle cx="32" cy="32" r="26.5" fill="none" stroke="#ffdcc3" stroke-width="1.5" opacity="0.35"/>
-  <!-- Ears -->
   <path fill="#fffcf5" d="M18.5 28.5 L14 12.5 Q16.5 10 22 14.5 L27 24.5 Z"/>
   <path fill="#fffcf5" d="M45.5 28.5 L50 12.5 Q47.5 10 42 14.5 L37 24.5 Z"/>
-  <!-- Inner ear tint (coat color hint) -->
   <path fill="#e8c98a" d="M19.8 26.2 L16.8 15.2 Q18.2 13.8 21.2 16.5 L25.2 24 Z" opacity="0.9"/>
   <path fill="#e8c98a" d="M44.2 26.2 L47.2 15.2 Q45.8 13.8 42.8 16.5 L38.8 24 Z" opacity="0.9"/>
-  <!-- Face (cartoon cat-face proportions) -->
   <ellipse cx="32" cy="36.5" rx="16.5" ry="15" fill="#fffcf5"/>
-  <!-- Eyes -->
   <ellipse cx="25.5" cy="34.5" rx="2.4" ry="3" fill="#8d4b00"/>
   <ellipse cx="38.5" cy="34.5" rx="2.4" ry="3" fill="#8d4b00"/>
   <circle cx="26.2" cy="33.6" r="0.7" fill="#fffcf5"/>
   <circle cx="39.2" cy="33.6" r="0.7" fill="#fffcf5"/>
-  <!-- Nose -->
   <path fill="#8d4b00" d="M32 38.2 L29.8 41 Q32 42.8 34.2 41 Z"/>
-  <!-- Mouth -->
   <path fill="none" stroke="#8d4b00" stroke-width="1.6" stroke-linecap="round"
     d="M32 41.2 v2.4 M27.5 45 Q32 48.5 36.5 45"/>
-  <!-- Cheek blush -->
   <ellipse cx="22.5" cy="39.5" rx="2.2" ry="1.3" fill="#e8c98a" opacity="0.55"/>
   <ellipse cx="41.5" cy="39.5" rx="2.2" ry="1.3" fill="#e8c98a" opacity="0.55"/>
 </svg>

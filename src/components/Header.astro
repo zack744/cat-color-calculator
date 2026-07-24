@@ -13,8 +13,9 @@ const links = [
 ---
 <nav class="bg-parchment/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/40">
   <div class="flex justify-between items-center w-full px-lg md:px-xl max-w-container-max mx-auto py-md">
-    <a href="/" class="text-lg font-bold text-primary tracking-tight">
-      Cat Color Calculator
+    <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-primary tracking-tight min-w-0">
+      <img src="/logo.svg" alt="" width="36" height="36" class="w-9 h-9 shrink-0" />
+      <span class="truncate">Cat Color Calculator</span>
     </a>
     <div class="hidden md:flex items-center gap-lg">
       {links.map((l) => (
