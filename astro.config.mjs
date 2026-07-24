@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://catcolorcalculator.icu',
+  site: 'https://www.catcolorcalculator.icu',
   trailingSlash: 'always',
   integrations: [
     tailwind({
