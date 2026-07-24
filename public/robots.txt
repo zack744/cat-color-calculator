@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://catcolorcalculator.icu/sitemap.xml
+Sitemap: https://www.catcolorcalculator.icu/sitemap.xml
